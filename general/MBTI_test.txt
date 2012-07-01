@@ -1,0 +1,10 @@
+behrooz = http://www.iranzehn.com/MBTITypes.aspx?type=INTJ
+mahmood = http://iranzehn.com/MBTITypes.aspx?type=ESTJ
+man = http://iranzehn.com/MBTITypes.aspx?type=ENFP
+pejman = http://iranzehn.com/MBTITypes.aspx?type=ISTJ
+seyed ahmad =  http://iranzehn.com/MBTITypes.aspx?type=iNFP
+athari = http://www.iranzehn.com/MBTITypes.aspx?type=ISFJ
+mamad = http://www.iranzehn.com/MBTITypes.aspx?type=ENTP
+kia =  http://www.iranzehn.com/MBTITypes.aspx?type=ENFJ
+farshad = ESFP
+maryam = enfg

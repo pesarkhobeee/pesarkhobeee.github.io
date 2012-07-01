@@ -1,0 +1,19 @@
+You'll find sshf at http://fuse.sourceforge.net/sshfs.html. It requires FUSE, the user space file system. By the way, there are all kinds of other things built upon FUSE; you may want to poke around there.
+
+Some small things that may need clarification:
+
+The home page for sshfs says "This is a filesystem client based on the SSH File Transfer Protocol". True enough, but also it specifically depends upon sftp being enabled on the host you want to connect to. You'll find that in /etc/ssh/sshd_config (on the host you want to mount):
+
+Subsystem sftp /usr/libexec/openssh/sftp-server
+
+If that's commented out, uncomment it and do "kill -1 `cat /var/run/sshd.pid`"
+
+Fuse needs /dev/fuse, which you can create with "sudo mknod -m 666 /dev/fuse c 10 229". If you run into problems with sshfs, /dev/fuse may not have rw permissions after you get done killing everything off, so you may need to sudo chmod it again.
+
+Using sshfs looks something like this:
+
+sshfs user@host: local_directory
+
+If you don't want user's home directory as your root, say so:
+
+sshfs user@host:/somedirectory local_directory 

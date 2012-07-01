@@ -1,0 +1,3 @@
+use js , css, image in them:
+	 <script src="<?php bloginfo('template_url'); ?>/js/slides.min.jquery.js"></script>
+

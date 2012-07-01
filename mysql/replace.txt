@@ -1,0 +1,2 @@
+UPDATE wp_posts SET post_content = REPLACE (post_content, 'http://oldlink.com', 'http://newlink.com');
+/var/cpanel/

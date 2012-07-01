@@ -1,0 +1,10 @@
+.irssi/config
+-------------------------------------------------------------------
+toye settings = {
+ 
+ "fe-common/core" = { 
+	autolog="yes";
+	autolog_path="~/irclog/%Y/$tag/$0.%m-%d.log" ;
+	};
+
+}

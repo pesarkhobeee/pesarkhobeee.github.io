@@ -1,0 +1,10 @@
+ Export Datafile
+
+mysqldump -uroot -p database > databse-backup.sql
+
+ Import Datafile
+
+Type the following command to import sql data file:
+$ mysql -u username -p -h localhost DATA-BASE-NAME < data.sql
+In this example, import 'data.sql' file into 'blog' database using vivek as username:
+$ mysql -u vivek -p -h localhost blog < data.sql 

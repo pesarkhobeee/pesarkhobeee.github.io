@@ -1,0 +1,1 @@
+(jdate; sleep 10)| dzen2 -x 900 -y 886 -h 13 -bg black

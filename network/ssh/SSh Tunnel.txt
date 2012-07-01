@@ -1,0 +1,20 @@
+RemoteInvalidIP:RemotePort forward to LocalIP:LocalPort
+
+ssh username@RemoteValidIP -L LocalIP:LocalPort:RemoteInvalidIP:RemotePort -N
+
+LocalInvalidIP:LocalPort forward to Remote127.0.01:RemotePort
+
+ssh username@RemoteValidIP -R RemotePort:LocalInvalidIP:LocalPort -N
+
+Remote Desktop (rdp)
+
+ssh 10.11.12.1 -L 172.16.20.2:3389:10.11.12.20:3389 -N
+
+PCAnyWhere
+
+ssh 10.11.12.1 -L 172.16.20.2:5631:10.11.12.20:5631 -D 172.16.20.2:5632 -N
+
+SSH CallBack
+
+ssh user@10.11.12.1 -R 2222:172.16.20.2:22 -N
+

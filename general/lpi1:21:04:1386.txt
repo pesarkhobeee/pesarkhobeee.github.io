@@ -1,0 +1,6 @@
+ls -R => be sorate tree mohtaviate sayere foldere ha ye dakhele directory ls gerefte shode ra neshan midahad
+inode => har file va folderi dar haghighat be yek inode eshre mikonad
+sowft link va hrd linke => hard linke be yek inode eshre mikonad va mitone chand hard linke be yek inode eshre kone va ta vaghti ke be yek seri inode hard linkayi eshre mikonad omran on inode pak sge  vali soft link be yek hardlink eshre mikonad va age on hark link pak she , soft link ham bi masraf mishe 
+~username => be home useri khas eshre mikonad be jaye dadan masire motlagh
+ls -d => yek file ya directory khaso neshon mide ! az grep estefade nemikonim chon dige rangi neshon nemide
+ta safhe 16 

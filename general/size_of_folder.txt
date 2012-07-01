@@ -1,0 +1,1 @@
+ du -hscS CodeIgniter_2.1.0/

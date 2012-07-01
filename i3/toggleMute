@@ -1,0 +1,11 @@
+#!/bin/bash
+
+X=`amixer get Master | grep "Playback" | grep -o -e "\[off\]" | tail -n 1`
+
+# it's muted
+if [ $X = "[off]" ] ; then
+	amixer set Master unmute
+else
+	amixer set Master mute
+fi
+

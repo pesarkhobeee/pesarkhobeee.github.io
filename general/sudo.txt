@@ -1,0 +1,5 @@
+#visudo
+using the arrows travel down the page until you see
+root ALL=(ALL) ALL
+To add your username just under this type i (This is insert mode)
+MyUname ALL=(ALL) ALL

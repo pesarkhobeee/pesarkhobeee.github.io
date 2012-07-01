@@ -1,0 +1,16 @@
+<?php
+$client = new SoapClient("http://webservice.smsline.ir/index.php?wsdl");
+foreach($client->__getFunctions() as $item)
+	echo $item."<br>";
+
+$var = array('username'=>'hetg2','password'=>'test123');
+$exception = null; 
+try {
+	$tmp =$client->COUNT_SENDSMS($var);
+	echo $tmp;
+	echo("<br>");
+	echo "Response:\n" . $client->__getLastResponse() . "\n";
+} catch (SoapFault $sf) {
+	echo $sf;
+}
+?>
