@@ -1,0 +1,1 @@
+cat index.html | sed -e 's/<a href=".*">/" "/g'

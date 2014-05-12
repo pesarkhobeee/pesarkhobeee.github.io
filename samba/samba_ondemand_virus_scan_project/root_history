@@ -1,0 +1,130 @@
+    1  pwd
+    2  cd /home/pesarkhobeee/
+    3  ls
+    4  cd samba-3.4.7~dfsg/
+    5  ./debian/rules configure-stamp
+    6  ls
+    7  cd debian/
+    8  ls
+    9  cd rules 
+   10  cat rules 
+   11  ./debian/rules configure-stamp
+   12  cd ../..
+   13  ./debian/rules configure-stamp
+   14  cd samba-3.4.7~dfsg/
+   15  ./debian/rules configure-stamp
+   16  vi debian/rules 
+   17  ./debian/rules configure-stamp
+   18  head -n1 debian/rules 
+   19  ./debian/rules configure-stamp
+   20  poweroff 
+   21  clamfs /etc/clamfs.xml 
+   22  tail /var/log/syslog 
+   23  vi /etc/clamfs.xml 
+   24  cd /mnt/clamfs/
+   25  ls
+   26  cd test/
+   27  ls
+   28  cp clam-mew.exe ../
+   29  ls
+   30  cd ..
+   31  ls
+   32  vi /var/log/syslog 
+   33  tail /var/log/syslog
+   34  vi /etc/clamfs.xml 
+   35  cd /mnt/clamfs/
+   36  ls
+   37  mv clam-mew.exe test/
+   38  poweroff 
+   39  1384fe
+   40  cd /home/pesarkhobeee/samba-3.6.1/source3/
+   41  ls
+   42  mkdir /usr/src/samba-3.6.1
+   43  ./configure -prefix=/usr/src/samba-3.6.1/
+   44  make
+   45  make install
+   46  /usr/src/samba-3.6.1/sbin/smbd -D
+   47  cd /usr/src/samba-3.6.1/
+   48  ls
+   49  cd lib/
+   50  ls
+   51  cd /usr/src/samba-3.6.1/lib/
+   52  export LD_LIBRARY_PATH=/usr/src/samba-3.6.1/lib/
+   53  /usr/src/samba-3.6.1/sbin/smbd -D
+   54  /usr/src/samba-3.6.1/sbin/nmbd -D
+   55  vi /etc/samba/smb.conf 
+   56  ifconfig 
+   57  ps -A|grep sm
+   58  ps -A|grep s
+   59  /usr/src/samba-3.6.1/sbin/nmbd -D
+   60  /usr/src/samba-3.6.1/sbin/smbd -D
+   61  ps -A|grep s
+   62  cd /home/pesarkhobeee/
+   63  ls
+   64  apt-get install samba
+   65  smbd -V
+   66  apt-get unistall samba
+   67  apt-get remove samba
+   68  ls
+   69  cp -R samba-3.4.7~dfsg/ /usr/src/
+   70  cd /usr/src/samba-3.4.7~dfsg/
+   71  ls
+   72  cd source3
+   73  ./cobfig
+   74  ./configure
+   75  make
+   76  cd /home/pesarkhobeee/
+   77  ls
+   78  cd tmp/
+   79  ls
+   80  cd ..
+   81  umount tmp/
+   82  mount /dev/sdd1 tmp/
+   83  cd tmp/
+   84  ls
+   85  cp scannedonly-0.21.tar.gz /usr/src/
+   86  cd /usr/src/
+   87  tar xvf scannedonly-0.21.tar.gz 
+   88  ls
+   89  cd scannedonly-0.21
+   90  cd /usr/local/
+   91  mdir -p samba/lib/vfs
+   92  mkdir -p samba/lib/vfs
+   93  ls
+   94  cd -
+   95  ./configure --with-samba-source=/usr/src/samba-3.4.7~dfsg/source3/ --with-samba-vfs-dir=/usr/local/samba/lib/vfs/
+   96  apt-get install libclamav-dev
+   97  ./configure --with-samba-source=/usr/src/samba-3.4.7~dfsg/source3/ --with-samba-vfs-dir=/usr/local/samba/lib/vfs/
+   98  make
+   99  make install
+  100  freshclam 
+  101  man freshclam 
+  102  cd ..
+  103  ls
+  104  cd samba-3.4.7~dfsg/
+  105  ls
+  106  cd source3
+  107  ls
+  108  make install
+  109  cd ..
+  110  ls
+  111  cd source3
+  112  make install
+  113  /usr/local/samba/bin/smbd -D
+  114  /usr/local/samba/sbin/smbd -D
+  115  ps -A|grep smb
+  116  /usr/local/samba/sbin/smbd 
+  117  chmod +x /usr/local/samba/sbin/smbd
+  118  /usr/local/samba/sbin/smbd -D
+  119  ps -A|grep smb
+  120  /usr/local/samba/sbin/winbindd -d
+  121  /usr/local/samba/sbin/winbindd -D
+  122  /usr/local/samba/sbin/nmbd -D
+  123  ps -A|grep smb
+  124  ps -A|grep sm
+  125  history 
+  126  tail /var/log/syslog 
+  127  history 
+  128  mkdir /home/pesarkhobeee/tmp/samba_ondemand_scan_project
+  129  cd /home/pesarkhobeee/tmp/samba_ondemand_scan_project
+  130  history > root_history

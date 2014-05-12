@@ -1,0 +1,86 @@
+========================================== installed program ===========
+apt-get install tcpdump
+apt-get install nmap
+apt-get install links
+apt-get install less
+apt-get install dnsutils
+apt-get install mlocate
+
+============================================ checking setting ==========
+root@fu-manage:~# cat /proc/sys/net/ipv4/ip_forward 
+root@fu-manage:~# echo 1 > /proc/sys/net/ipv4/ip_forward
+
+<<<<<<< Defualt gateway  >>>>>>>
+root@fu-manage:~# route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         5.202.129.55    0.0.0.0         UG    0      0        0 eth1
+5.202.129.0     0.0.0.0         255.255.255.0   U     0      0        0 eth1
+
+------- ghable pak kardane defualt gateway age to ye shabake nistim bayad khodemono be gateway ezafe konim ---------
+root@fu-manage:~#  ip route add 109.125.191.4 via 5.202.129.1
+root@fu-manage:~#  ip route show
+root@fu-manage:~#  ip route show | column -t
+
+root@fu-manage:~# route del default
+
+<<<<<<< iptables  >>>>>>>
+root@fu-manage:~# iptables -t nat -L -nxv --line-numbers
+root@fu-manage:~# iptables -t nat -D POSTROUTING 3
+
+
+<<<<<<<  DNS >>>>>>>
+
+root@fu-manage:~# cat /etc/bind/named.conf
+root@fu-manage:~# rndc reload
+============================================ save setting ==============
+root@fu-manage:~# cat /etc/network/interfaces 
+
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+allow-hotplug eth1
+iface eth1 inet static
+	address 5.202.129.54
+	netmask 255.255.255.0
+	network 5.202.129.0
+	broadcast 5.202.129.255
+	gateway 5.202.129.1
+	dns-nameservers 81.12.49.100
+	dns-search fu-manage
+
+
+root@fu-manage:~# cat /etc/rc.local 
+
+iptables-save > iptablesload
+root@fu-manage:~# cat /etc/network/if-pre-up.d/iptablesload
+#!/bin/bash
+iptables -t nat -F
+
+iptables -t nat -A PREROUTING  -s 172.30.96.0/21 ! -d 5.202.129.54/32 -p tcp --dport 80 -j DNAT --to-destination 5.202.129.54:81 -m comment --comment "Tehran"
+iptables -t nat -A PREROUTING  -s 172.30.0.0/16 ! -d 5.202.129.54/32 -p tcp -m tcp --dport 80 -j DNAT --to-destination 5.202.129.54:82 -m comment --comment "Shahrestan"
+iptables -t nat -A PREROUTING  -s 172.30.0.0/16 -p udp -m udp --dport 53 -j DNAT --to-destination 5.202.129.54 -m comment --comment "DNS"
+
+iptables -t nat -A POSTROUTING -s 172.30.0.0/16 -d 176.56.158.133/32 -p tcp -m tcp --dport 443 -m comment --comment "Bank Mellat" -j SNAT --to-source 5.202.129.54
+iptables -t nat -A POSTROUTING -s 172.30.0.0/16 -d 212.80.25.14/32 -p tcp -m tcp --dport 443 -m comment --comment "Bank Parsian" -j SNAT --to-source 5.202.129.54
+
+<<<<<<< net.ipv4.ip_forward=1 >>>>>>>
+root@fu-manage:~# vi /etc/sysctl.conf
+root@fu-manage:~# egrep -v '^#|^ *$' /etc/sysctl.conf
+net.ipv4.ip_forward=1
+
+root@fu-manage:~# sysctl -p /etc/sysctl.conf
+
+
+======================================================================== 
+
+
+
+
+
+

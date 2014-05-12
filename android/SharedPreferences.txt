@@ -1,0 +1,108 @@
+
+    	SharedPreferences preferences = getApplicationContext().getSharedPreferences("net.pishgaman", Context.MODE_PRIVATE);
+        
+        
+        
+        
+		String fullname = preferences.getString("fullname", "n/a");
+		String mobile = preferences.getString("mobile", "n/a");
+		String email = preferences.getString("email", "n/a");
+		String current_service = preferences.getString("current_service", "n/a");
+		String credit = preferences.getString("credit", "n/a");
+		String deposit = preferences.getString("deposit", "n/a");
+		String status = preferences.getString("status", "n/a");
+		String jexpire = preferences.getString("jexpire", "n/a");
+		String gexpire = preferences.getString("gexpire", "n/a");
+		
+   	    TextView fullname_TextView = (TextView)findViewById(R.id.fullname);
+   	    fullname_TextView.setText(fullname);   
+   	    TextView mobile_TextView = (TextView)findViewById(R.id.mobile);
+   	    mobile_TextView.setText(mobile);   
+   	    TextView email_TextView = (TextView)findViewById(R.id.email);
+   	    email_TextView.setText(email);   
+   	    TextView current_service_TextView = (TextView)findViewById(R.id.current_service);
+   	    current_service_TextView.setText(current_service);
+   	    TextView credit_TextView = (TextView)findViewById(R.id.credit);
+   	    credit_TextView.setText(credit);
+   	    TextView deposit_TextView = (TextView)findViewById(R.id.deposit);
+   	    deposit_TextView.setText(deposit);
+   	    TextView status_TextView = (TextView)findViewById(R.id.status);
+   	    status_TextView.setText(status);
+   	    TextView jexpire_TextView = (TextView)findViewById(R.id.jexpire);
+   	    jexpire_TextView.setText(jexpire);
+		//Log.i(" fullname  : ", fullname);
+		//Log.i(" current_service : ", current_service);
+
+
+========================================================================
+
+
+        	
+        	try {
+        	    JSONObject parentObject = new JSONObject(result);
+        	    
+        	 // TODO Complete this Action!
+        	    
+        	    int userError = parentObject.getInt("error");
+        	    if(userError == 0) {
+            	    Log.i(" Now in :", " on ReadJson ");
+            	    JSONObject user = parentObject.getJSONObject("info");   
+            	    JSONObject userDetails = user.getJSONObject("user"); 
+            	    String fullname = userDetails.getString("fullname"); 
+            	    String mobile = userDetails.getString("mobile"); 
+            	    String email = userDetails.getString("email");
+            	    
+            	    JSONObject serviceDetails = user.getJSONObject("service"); 
+            	    String current_service = serviceDetails.getString("current_service");
+            	    String credit = serviceDetails.getString("credit");
+            	    String deposit = serviceDetails.getString("deposit");
+            	    String status = serviceDetails.getString("status");
+            	    String jexpire = serviceDetails.getString("jexpire");
+            	    String gexpire = serviceDetails.getString("gexpire");
+
+            	    SharedPreferences preferences =   getSharedPreferences("net.pishgaman", Context.MODE_PRIVATE);
+            		Editor edit = preferences.edit();
+            		edit.putString("fullname", fullname);
+            		edit.putString("mobile", mobile);
+            		edit.putString("email", email);
+            		edit.putString("current_service", current_service);
+            		edit.putString("credit", credit);
+            		edit.putString("deposit", deposit);
+            		edit.putString("status", status);
+            		edit.putString("jexpire", jexpire);
+            		edit.putString("gexpire", gexpire);
+            		edit.commit();        	    
+            		
+        	   	    TextView fullname_TextView = (TextView)findViewById(R.id.fullname);
+        	   	    fullname_TextView.setText(fullname);   
+        	   	    TextView mobile_TextView = (TextView)findViewById(R.id.mobile);
+        	   	    mobile_TextView.setText(mobile);   
+        	   	    TextView email_TextView = (TextView)findViewById(R.id.email);
+        	   	    email_TextView.setText(email);   
+        	   	    TextView current_service_TextView = (TextView)findViewById(R.id.current_service);
+        	   	    current_service_TextView.setText(current_service);
+        	   	    TextView credit_TextView = (TextView)findViewById(R.id.credit);
+        	   	    credit_TextView.setText(credit);
+        	   	    TextView deposit_TextView = (TextView)findViewById(R.id.deposit);
+        	   	    deposit_TextView.setText(deposit);
+        	   	    TextView status_TextView = (TextView)findViewById(R.id.status);
+        	   	    status_TextView.setText(status);
+        	   	    TextView jexpire_TextView = (TextView)findViewById(R.id.jexpire);
+        	   	    jexpire_TextView.setText(jexpire);
+            		
+        	    } else {
+        	    	Toast.makeText(getApplicationContext(), "کاربری با اطلاعات وارد شده در سیستم موجود نمیباشد!", Toast.LENGTH_LONG).show();
+        	    	Log.i(" In Json :","userError is eccure!");
+        	    }
+
+        		
+        		
+        		/*
+        		Intent broadcastIntent = new Intent();
+        		broadcastIntent.setAction("JSON_RECEIVED_ACTION");
+        		main_context.sendBroadcast(broadcastIntent);
+				*/
+        	} catch (JSONException e) {
+        	    // TODO Auto-generated catch block
+        	    e.printStackTrace();
+        	} 

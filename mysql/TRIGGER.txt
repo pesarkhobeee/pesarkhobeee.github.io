@@ -1,0 +1,77 @@
+http://dev.mysql.com/doc/refman/5.0/en/create-trigger.html
+
+CREATE
+    [DEFINER = { user | CURRENT_USER }]
+    TRIGGER trigger_name trigger_time trigger_event
+    ON tbl_name FOR EACH ROW trigger_body
+END  
+   
+   
+
+
+        CREATE TRIGGER `menu_loger` BEFORE DELETE ON `menu` FOR EACH ROW INSERT INTO menu_log
+VALUES (
+0,OLD.menu_id, OLD.menu_name, OLD.menu_url, OLD.menu_section, OLD.parent
+);
+
+CREATE TRIGGER `menu_loger_insert` AFTER INSERT ON `menu`
+FOR EACH
+ROW INSERT INTO menu_log
+VALUES (
+0, NEW.menu_id, NEW.menu_name, NEW.menu_url, NEW.menu_section, NEW.parent
+);
+
+CREATE TRIGGER `menu_loger_update` AFTER UPDATE ON `menu`
+FOR EACH ROW
+BEGIN
+    IF OLD.parent IS NULL AND NEW.parent NOT NULL THEN
+        INSERT INTO menu_log VALUES ( 0, NEW.menu_id, NEW.menu_name, NEW.menu_url, NEW.menu_section, NEW.parent);
+    END IF;   
+END
+
+
+CREATE TRIGGER `menu_loger_update` AFTER UPDATE ON `menu` FOR EACH ROW IF OLD.parent IS NULL AND NEW.parent IS NOT NULL THEN INSERT INTO menu_log
+VALUES (
+0, NEW.menu_id, NEW.menu_name, NEW.menu_url, NEW.menu_section, NEW.parent
+);
+
+END IF ;
+
+
+CREATE DEFINER = `root`@`localhost` TRIGGER `menu_loger_update` AFTER UPDATE ON `menu` FOR EACH ROW BEGIN IF OLD.parent IS NULL AND NEW.parent IS NOT NULL THEN INSERT INTO menu_log
+VALUES (
+0, NEW.menu_id, NEW.menu_name, NEW.menu_url, NEW.menu_section, NEW.parent
+);
+
+END IF ;
+Pejman Moghadam pmoghadam@yahoo.com
+	
+3/13/13
+		
+to me
+be in shekl anjam dadam, kheili jalebe vaghean, labelaye mesaal haat dashte bashesh shayad ye rooz be dardet khord;
+
+vaghti to table users meghdare download yaroo ro update koni, meghdare ghablie download ro ba tazehe jam mikone bad update mikone
+age meghdare jadid 0 bashe in karo anjam nemide, ke ye rahi vojod dashte bashe counter e download ro sefr konim.
+
+
+ALTER TABLE users ADD download INT default 0;
+delimiter |
+CREATE
+        TRIGGER `add_download` BEFORE UPDATE
+        ON `users` FOR EACH ROW
+        IF ( NEW.download != 0 ) THEN
+                set NEW.download = OLD.download + NEW.download;
+        END IF;
+|
+delimiter ;
+
+
+mamnoon
+
+ 
+
+
+Pejman Moghadam
++98 912 141 4289
+

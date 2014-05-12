@@ -1,0 +1,14 @@
+#! /bin/bash
+TEMP_FILE='/var/tmp/empty_file_finder'
+
+find $1 -iname "*" > $TEMP_FILE
+
+for line in $(cat $TEMP_FILE)          
+do 
+	if [ ! -s "$line" ]
+	then
+		echo $line 
+	fi        
+done
+
+rm $TEMP_FILE

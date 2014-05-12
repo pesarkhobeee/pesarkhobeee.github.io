@@ -1,0 +1,23 @@
+[[server]]
+git clone https://github.com/tv42/gitosis.git
+cd gitosis
+python setup.py install
+adduser     --system     --shell /bin/sh     --gecos 'Git'     --group     --disabled-password     --home /home/git     git
+apt-get install sudo
+sudo -H -u git gitosis-init < ~/.ssh/authorized_keys
+chmod 755 /home/git/repositories/gitosis-admin.git/hooks/post-update
+
+[[client]]
+git clone ssh://git@178.162.206.145:1392/gitosis-admin.git
+cd gitosis-admin
+ls keydir
+vi gitosis.conf
+git commit -a -m "Create repository for  ....."
+git push origin master 
+
+[[projects]]
+git init
+git remote add origin ssh://git@178.162.206.145:1392/otoluxe.git
+git add .
+git commit -a -m "initial"
+git push origin master

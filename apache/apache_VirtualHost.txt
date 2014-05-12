@@ -1,0 +1,22 @@
+/etc/apache2/sites-enabled/test
+========================================================================
+
+<VirtualHost *:80>
+ServerName  test 
+
+DocumentRoot /home/farid/htdocs/test
+<Directory /home/farid/htdocs/test>
+        Options -Indexes
+        AllowOverride All
+
+        Order allow,deny
+        Allow from all
+</Directory>
+
+</VirtualHost>
+
+========================================================================
+
+sudo a2ensite test
+sudo service apache2 reload
+

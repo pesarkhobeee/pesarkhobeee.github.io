@@ -1,0 +1,1 @@
+echo 'mirror --reverse --delete  --only-newer --verbose /home/pesarkhobeee/mp3 /public_html/mp3 ' | lftp -u farid,linux@zanjan zanjanlug.org

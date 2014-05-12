@@ -1,0 +1,4 @@
+for f in *.php
+do
+ sed -i  's,SEARCH_STRING,REPLACE_STRING,g' $f
+done

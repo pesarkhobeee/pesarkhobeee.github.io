@@ -1,0 +1,9 @@
+htpasswd -c  .htpasswd username
+=================================================
+.htaccess =>
+AuthName “Restricted Area”
+AuthType Basic
+AuthUserFile /home/zanjanhost/public_html/.htpasswd
+AuthGroupFile /dev/null
+require valid-user
+

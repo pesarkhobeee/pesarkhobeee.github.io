@@ -1,0 +1,183 @@
+    1  ls
+    2  cp tmp/index.html .
+    3  ls
+    4  head -n2 index.html 
+    5  head -n2 index.html | tail -n 1
+    6  head -n2 index.html | tail -n 1 > exe
+    7  chmod +x exe 
+    8  ls
+    9  ./exe 
+   10  sudo ./exe 
+   11  vi exe 
+   12  sudo ./exe 
+   13  vi index.html 
+   14  head -n7 index.html | tail -n 1 > exe
+   15  ./exe 
+   16  head -n24 index.html | tail -n 3 > exe
+   17  vi exe 
+   18  ./exe 
+   19  sudo ./exe 
+   20  head -n7 index.html | tail -n 1 > exe
+   21  sudo ./exe 
+   22  vi index.html 
+   23  head -n25 index.html | tail -n 1 > exe
+   24  sudo ./exe 
+   25  ls
+   26  tcpdump 127.0.0.1
+   27  tcpdump eth0
+   28  ifconfig 
+   29  nslookup 
+   30  nmap 127.0.0.1
+   31  sudo apt-get install nmap
+   32  nmap 127.0.0.1
+   33  sudo apt-get install htop
+   34  htop
+   35  htop 
+   36  lynks
+   37  ]links
+   38  links
+   39  sudo apt-get install links
+   40  links
+   41  ifconfig 
+   42  ping 192.168.1.2
+   43  nmap 192.168.1.2
+   44  nmap -PN 192.168.1.2
+   45  ping 192.168.1.2
+   46  links 192.168.1.2
+   47  links http://192.168.1.2
+   48  df -H
+   49  cat /proc/partitions 
+   50  mkdir tmp
+   51  mount /dev/sdc1 tmp/
+   52  sudo mount /dev/sdc1 tmp/
+   53  ls
+   54  cd tmp/
+   55  ls
+   56  cat index.html 
+   57  nano index.html 
+   58  vi index.html 
+   59  cd ..
+   60  umount tmp/
+   61  sudo umount tmp/
+   62  catr /proc/partitions 
+   63  cat /proc/partitions 
+   64  mount /dev/sdc1 tmp/
+   65  sudo mount /dev/sdc1 tmp/
+   66  cd tmp/
+   67  ls
+   68  cp -R samba-vscan-0.3.6b ../
+   69  cd ..
+   70  ls
+   71  ls -al
+   72  sudo -i
+   73  cd samba-3.4.7~dfsg/
+   74  ./debian/rules configure-stamp
+   75  vi ./debian/rules 
+   76  poweroff 
+   77  sudo poweroff 
+   78  sudo appt-get install libc-dev
+   79  sudo apt-get install libc-dev
+   80  sudo apt-get install build-essential
+   81  mkdir 
+   82  ls
+   83  cat /proc/partitions 
+   84  mount /dev/sdc1 tmp/
+   85  sudo mount /dev/sdc1 tmp/
+   86  cd tmp/
+   87  dpkg -i unzoo_4.4-7_i386.deb 
+   88  sudo dpkg -i unzoo_4.4-7_i386.deb 
+   89  man unzoo 
+   90  cd ..
+   91  cd samba-3.4.7~dfsg/
+   92  sudo ./debian/rules configure-stamp
+   93  ./debian/rules configure-stamp
+   94  ./debian/rules configure
+   95  sudo ./debian/rules configure
+   96  ./debian/rules configure-stamp
+   97  cd source
+   98  ls
+   99  cd source3/
+  100  make proto
+  101  cd..
+  102  cd ..
+  103  ls
+  104  apt-get search vscan
+  105  sudo apt-get search vscan
+  106  sudo apt-file search vscan
+  107  sudo apt-get install samba
+  108  sudo apt-get install smbfs
+  109  sudo vi /etc/samba/smb.conf 
+  110  sudo smbpasswd -a pesarkhobeee
+  111  sudo vi /etc/samba/smbusers
+  112  cat /etc/samba/smbusers
+  113  sudo vi /etc/samba/smb.conf 
+  114  time
+  115  date 
+  116  ifconfig 
+  117  sudo vi /etc/samba/smb.conf 
+  118  ls
+  119  sudo cp vscan-clamav.conf /etc/samba/
+  120  ls /etc/samba/
+  121  ps -A|grep cl
+  122  cp /usr/share/clamav-testfiles/* test
+  123  mkdir test
+  124  cp /usr/share/clamav-testfiles/* test
+  125  reboot 
+  126  sudo reboot 
+  127  cde test/
+  128  cd test/
+  129  ls
+  130  cat clam.e
+  131  cat clam.exe
+  132  ls
+  133  pwd
+  134  mkdir /mnt/clamfs
+  135  sudo mkdir /mnt/clamfs
+  136  ci clamfs.xml 
+  137  vi clamfs.xml 
+  138  ls
+  139  cp clamfs.xml /etc/
+  140  sudocp clamfs.xml /etc/
+  141  sudo cp clamfs.xml /etc/
+  142  sudo -i
+  143  ls
+  144  cd samba-vscan-0.3.6b/
+  145  ls
+  146  cat README 
+  147  less README
+  148  less INSTALL 
+  149  cd ..
+  150  l
+  151  man smbd
+  152  smbd -V
+  153  sudo apt-get upgrade samba
+  154  smbd -V
+  155  ls
+  156* 
+  157  sudo apt-get remove samba
+  158* ping 
+  159  ls
+  160  df -H
+  161  cat /proc/partitions 
+  162  mount /dev/sdc1 tmp/
+  163  sudo mount /dev/sdc1 tmp/
+  164  cd tmp/
+  165  ls
+  166  cp samba-latest.tar.gz ../
+  167  cd ..
+  168  ls
+  169  tar xvf samba-latest.tar.gz 
+  170  ls
+  171  cd samba-3.6.1/
+  172  ls
+  173  cat INS
+  174  cat README
+  175  less .
+  176  less README
+  177  ls
+  178  ./cofgure
+  179  cd source
+  180  cd source4/
+  181  ls
+  182  sudo -i
+

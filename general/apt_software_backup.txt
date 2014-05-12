@@ -1,0 +1,5 @@
+backup:
+tar zcvf apt_backup.tgz /etc/apt/ /var/lib/apt/ /var/cache/apt
+
+restore:
+tar zxvf apt_backup.tgz -C

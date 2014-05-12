@@ -1,0 +1,38 @@
+screen
+
+Ctrl-A ?=>help
+Ctrl-A c =>creat new windows
+Ctrl-A n =>next
+Ctrl-A p => previous
+Ctrl-A d => detach
+Ctrl-A k => exit
+Ctrl-A H => creat running log
+screen -ls => screen list
+screen -r 31619.ttyp2.gigan => reattach
+
+~~~~~~~~~~~~~~~
+~~ Shortcuts ~~
+~~~~~~~~~~~~~~~
+
+Ctrl-a S       (split)       Split region.
+Ctrl-a tab     (focus)       Switch to next region.
+Ctrl-a X       (remove)      Kill the current region.
+Ctrl-a Q       (only)        Delete all regions but the current one.
+Ctrl-a c       (screen)      Create a window.
+Ctrl-a n       (next)        Next window.
+Ctrl-a p       (prev)        Previous window.
+Ctrl-a "       (windowlist)  List of windows.
+Ctrl-a k       (kill)        Destroy window.
+Ctrl-a d       (detach)      Detach screen.
+Ctrl-a A       (title)       Set window title.
+Ctrl-a [       (copy)        Copy/Scrollback mode.
+Ctrl-a ]       (paste)       Paste to stdin.
+
+~~~~~~~~~~~~~
+~~ Switchs ~~
+~~~~~~~~~~~~~
+
+-r              resumes a detached screen session
+-x              attach to a not detached screen session
+-d -m           Start  screen  in  detached mode
+-S essionname   specify a meaningful name for the session

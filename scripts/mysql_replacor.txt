@@ -1,0 +1,47 @@
+<?php
+
+	/*
+		@TODO 
+		* Detect type of Fields and run replace query on text & string
+		* Or you can use this: http://www.softwarerockstars.com/article/mysql-search-and-replace-stored-procedure
+	*/
+	$SearchReplace_Array = array(
+								"ي" => "ی",
+								"ك" => "ک"  );
+
+	$mysqli = new mysqli("localhost", "root", "1384fe", "roozbeh");
+
+	/* check connection */
+	if (mysqli_connect_errno()) {
+		printf("Connect failed: %s\n", mysqli_connect_error());
+		exit();
+	}
+
+	$query_TABLES = "SHOW TABLES";
+
+	if ($result_TABLES = $mysqli->query($query_TABLES)) {
+
+		/* fetch object array */
+		while ($row_TABLES = $result_TABLES->fetch_row()) {
+			printf ("\n << %s >> \n", $row_TABLES[0]);
+			$query_COLUMNS = "SHOW COLUMNS FROM $row_TABLES[0]";
+			if ($result_COLUMNS = $mysqli->query($query_COLUMNS)) {
+				
+				while ($row_COLUMNS = $result_COLUMNS->fetch_row()) {
+					printf ("%s ", $row_COLUMNS[0] );
+					foreach($SearchReplace_Array as $OldText => $NewText) {
+						//UPDATE [table_name] SET [field_name] = REPLACE([field_name],'[string_to_find]','[string_to_replace]');
+						$mysqli->query("UPDATE $row_TABLES[0] SET $row_COLUMNS[0] = REPLACE($row_COLUMNS[0],'$OldText','$NewText');");
+					
+					}
+				}
+			}
+			
+		}
+
+		/* free result set */
+		$result_TABLES->close();
+		$result_COLUMNS->close();
+	}
+
+

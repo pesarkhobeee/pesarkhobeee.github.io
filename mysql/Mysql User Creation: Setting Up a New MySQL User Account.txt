@@ -1,0 +1,21 @@
+
+$ mysql -u root -p
+
+OR
+
+$ mysql -u root -h your-mysql-server-host-name -p
+
+========================================================================
+
+mysql> CREATE DATABASE demo;
+
+========================================================================
+
+mysql> GRANT ALL ON demo.* TO user1@localhost IDENTIFIED BY 'mypassword';
+
+========================================================================
+$ mysql -u user1 -p demo
+
+OR
+
+$ mysql -u user1 -h  your-mysql-server-host-name-here -p demo

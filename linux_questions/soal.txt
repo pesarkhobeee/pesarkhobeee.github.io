@@ -1,0 +1,168 @@
+001- Which of the following protocols is a routing protocol?
+
+ BGP
+
+002- Which of the following commands can be used to check if ethernet cable is plugged in to the ethernet card or not?
+ mii-tool
+
+
+003- Where is the stub resolver's config file ?
+/etc/resolv.conf
+
+
+004- Where is the default gateway setting?
+ /etc/network/interfaces 
+
+
+005- How can you get logout of shell?
+
+<ctrl+d>
+ 
+006- What key-combination can use instead of 'clear' command? 
+ <ctrl+l>
+
+
+007- What command can you use to safely shutdown the Linux system immediately?
+ poweroff
+
+
+008- How can you change the 'test' user's password?
+ passwd test
+ 
+
+009- What does command 'cd -' do? 
+ recall previous directory
+
+
+010- How can you copy all the content of '/tmp/test/' to a 'test' subdirectory in '/usr' ?
+
+ cp -r /tmp/test   /usr/ 
+
+
+011- What command can be use to read the text file '/etc/services' page by page ? 
+ less /etc/services
+
+
+012- Which of the following commands can you use to set the ip address '172.16.20.2/26' on interface 'eth0'?
+
+ ifconfig eth0 172.16.20.2 netmask 255.255.255.192
+
+
+013- How can you set '172.16.20.1' as your default gateway? 
+ route add default gw 172.16.20.1
+        
+014- How can you enable ip forwarding in linux kernel? 
+      
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+015- How can you grant execute permission to the owner of '/usr/local/sbin/test.sh' ?
+ chmod u+x /usr/local/sbin/test.sh
+
+
+016- How can you drop every icmp 'echo request' packet coming to linux box?
+   
+iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
+
+017- Which of the following firewall rules are 'stateful'?
+      
+iptables -t filter -A FORWARD -i eth1 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT 
+
+018- Which of the following commands can show partitions usage and mount points?
+      
+df -hT
+       
+019- What command can search for files containing '172.16.20.1' within entire '/etc/' and subdirectories?
+    
+grep -r "172.16.20.1" /etc/*
+
+020- What command can search for filenames started with 'network' in entire filesystem? 
+   
+ grep "network*" /*
+   
+021- How can you read last 15 lines of '/var/log/syslog' ?
+ tail -n 15 /var/log/syslog
+       
+022- How can you extract 'file.tar.bz2' ?
+       
+ tar jxf file.tar.bz2
+
+
+023- How to watch header of all packets flowing on interface "eth0"?
+
+        tcpdump -nqi eth0
+        tcpdump -qni eth0
+
+
+024- How to masquerade all packets flowing out of "eth0"? 
+   
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+        
+025- How can you schedule rkhunter to run from cron?
+         rkhunter --cronjob
+         rkhunter -c --sk --nocolors 
+        
+
+026- How can you find processes hidden by rootkits with checking all process IDs?
+        
+         unhide-linux26 brute
+        
+
+027- What type of resource record can not be used in a reverse zone file?
+        
+        A record
+      
+
+028- What directive defines the duration that a record may be cached?
+      
+         $TTL
+
+029- 'in-addr.arpa' suffix should be use in :
+       reverse zone
+    
+
+030- What is the type of "." zone ?
+
+        hint
+
+031- Which of the following softwares is MTA?
+ 
+         QMail
+
+032- Which of the following softwares is MUA?
+ Mailx
+
+
+033- Which file is contain hashed passwords?
+ /etc/shadow
+
+
+034- Which command can be use for safe editing of '/etc/shadow' file?
+ vipw -s
+
+035- Which of the following commands can be use for changing properties of an existing user? 
+
+ usermod test
+
+
+036- How can you copy files from skeleton directory to 'test' user's home directory?
+      
+         cp /etc/skel/{*,.*} /home/test/ 
+         cd /etc/skel/; tar cv . | tar xvC /home/test/ 
+
+
+037- What command can use for adding a new user with relevant home directory and 'bash' shell?
+         useradd test -m -s /bin/bash 
+
+
+038- How to add an existing user to 'admin' group as an additional group membership?
+ usermod -G admin test 
+
+
+039- Which command can add new user named 'administrator' with exact permissions like 'root' user? 
+        useradd -o -u 0 administrator
+
+
+040- How can you login to your additional group named 'wheel'?
+
+         newgrp wheel
+

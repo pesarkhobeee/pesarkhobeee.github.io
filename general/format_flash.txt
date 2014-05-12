@@ -1,0 +1,23 @@
+
+    andrei@andrei-desktop:~# dmesg | tail
+    [ 2143.440053] scsi 6:0:0:0: Direct-Access JetFlash TS1GJFV30 8.07 PQ: 0 ANSI: 2
+    [ 2143.464348] sd 6:0:0:0: Attached scsi generic sg3 type 0
+    [ 2143.466113] sd 6:0:0:0: [sdd] 2002942 512-byte logical blocks: (1.02 GB/977 MiB)
+    [ 2143.466607] sd 6:0:0:0: [sdd] Write Protect is off
+    [ 2143.466610] sd 6:0:0:0: [sdd] Mode Sense: 03 00 00 00
+    [ 2143.466612] sd 6:0:0:0: [sdd] Assuming drive cache: write through
+    [ 2143.468733] sd 6:0:0:0: [sdd] Assuming drive cache: write through
+    [ 2143.468737] sdd: sdd1
+    [ 2143.476393] sd 6:0:0:0: [sdd] Assuming drive cache: write through
+    [ 2143.476398] sd 6:0:0:0: [sdd] Attached SCSI removable disk
+
+========================================================================
+sudo umount /dev/sdd
+========================================================================
+a) Format to FAT:
+
+sudo mkdosfs -n 'Label' -I /dev/sdd
+
+b) Format to EXT3:
+
+sudo mkfs.ext3 -n 'Label' -I /dev/sdd

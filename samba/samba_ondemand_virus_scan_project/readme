@@ -1,0 +1,103 @@
+salam ostad
+ostad in proje samba realtime virus scan mano .... ":D
+didam behtare ba shoma mashvarat konam :P
+ostad bara ye residan be hadafe scan kardan real time to ubuntu server 10.04 LTS be 3 ravesh residam:
+goftam shayad shoma moshkele 3 vomiaro bedonid :P
+
+
+ 0. dar marhale aval samba ro nasbo configo test kardam ba document zir:
+		http://www.howtogeek.com/howto/ubuntu/install-samba-server-on-ubuntu/
+ama dar tahghighatam majbor shodam pakesh konam va ro be source biaram:
+
+
+ 1. samba-vscan
+		http://michsan.blogspot.com/2008/04/installing-clamav-antivirus-on-samba-in.html
+		gar che in raveshe marsome zaheran ama to ubuntu 10.04 to marhale ye " ./debian/rules configure-stamp " ye hamchin chizio peyda nemikone
+		khili searcj kardam , khili ha ham in moshkelo daran ama natonestam hal konam
+
+
+1.5 jayi khondam ehtiyaj nist samba ro to version haye jadid ba vscan compile konid faghat kafie tanzim konid ke ba raveshe zir raftamo javab nadad:
+		http://lists.samba.org/archive/samba/2006-September/124880.html
+
+	*rahe hal in moshkel down grade fek konnam :D , albate ye jayiam khondam ro open suse nasbe be tor pishfarz :P
+
+
+2.clamfs
+	http://clamfs.sourceforge.net/
+	in ye file systeme majazie zaheran ke ro jayi ke ma hastim mitone mount beshe va hamishe ba viruscan va system file dar taamol bashe
+	ba vojode tanzimesh amalkardio moshahede nakardam! tozih inke to testam /usr/share/clamav-testfiles ro to homam copy kardam va yeki az filaye tosho montaghel kardam darigh az ye alert che berese be pak kardaneshon :(
+
+
+3 . Scannedonly scalable samba anti-virus module
+
+	khob zaheran in behtarin gozinast ama az bade majara ro samba 3.5 be bala nasbesh hichi nadare ama samba 10.04 ma 3.4.7 bod! hata ba upgrade!!! be har hal man ham sambaye repository khode ubuntu va ham akharin versione samba ro gereftam vaa az ro source tebghe dastorat nasb kardam ama moghe run kardan hich deamoni to hafeze nemiad! :(
+
+ghemate marbote az root hostory log :
+
+cp -R samba-3.4.7~dfsg/ /usr/src/
+   70  cd /usr/src/samba-3.4.7~dfsg/
+   71  ls
+   72  cd source3
+   73  ./cobfig
+   74  ./configure
+   75  make
+   76  cd /home/pesarkhobeee/
+   77  ls
+   78  cd tmp/
+   79  ls
+   80  cd ..
+   81  umount tmp/
+   82  mount /dev/sdd1 tmp/
+   83  cd tmp/
+   84  ls
+   85  cp scannedonly-0.21.tar.gz /usr/src/
+   86  cd /usr/src/
+   87  tar xvf scannedonly-0.21.tar.gz 
+   88  ls
+   89  cd scannedonly-0.21
+   90  cd /usr/local/
+   91  mdir -p samba/lib/vfs
+   92  mkdir -p samba/lib/vfs
+   93  ls
+   94  cd -
+   95  ./configure --with-samba-source=/usr/src/samba-3.4.7~dfsg/source3/ --with-samba-vfs-dir=/usr/local/samba/lib/vfs/
+   96  apt-get install libclamav-dev
+   97  ./configure --with-samba-source=/usr/src/samba-3.4.7~dfsg/source3/ --with-samba-vfs-dir=/usr/local/samba/lib/vfs/
+   98  make
+   99  make install
+  100  freshclam 
+  101  man freshclam 
+  102  cd ..
+  103  ls
+  104  cd samba-3.4.7~dfsg/
+  105  ls
+  106  cd source3
+  107  ls
+  108  make install
+  109  cd ..
+  110  ls
+  111  cd source3
+  112  make install
+  113  /usr/local/samba/bin/smbd -D
+  114  /usr/local/samba/sbin/smbd -D
+  115  ps -A|grep smb
+  116  /usr/local/samba/sbin/smbd 
+  117  chmod +x /usr/local/samba/sbin/smbd
+  118  /usr/local/samba/sbin/smbd -D
+  119  ps -A|grep smb
+  120  /usr/local/samba/sbin/winbindd -d
+  121  /usr/local/samba/sbin/winbindd -D
+  122  /usr/local/samba/sbin/nmbd -D
+  123  ps -A|grep smb
+  124  ps -A|grep sm
+  125  history 
+  126  tail /var/log/syslog 
+
+
+refrence :
+
+alave bar sitayi ke bala link dadam va ye kharvare site ashghale dige ke khondam 2 ta linke painam be dardam khord:
+http://www.oregontechsupport.com/samba/
+http://www.webhostingtalk.com/showthread.php?t=713399
+
+

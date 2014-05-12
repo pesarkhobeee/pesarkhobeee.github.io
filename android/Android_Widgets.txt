@@ -1,0 +1,192 @@
+=============================================== AndroidManifest.xml ====
+      <receiver
+             android:icon="@drawable/icon"
+       		 android:label="Example Widget"
+             android:name="WidgetProvider" >
+            <intent-filter >
+                <action 
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
+        
+============================================= res/xml/widget_info.xml ==
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android" android:initialLayout="@layout/widget_layout" android:minWidth="280dp" android:minHeight="72dp" android:updatePeriodMillis="180000">
+    
+
+</appwidget-provider>
+
+<<<<<<<<<<<<<<<<<<<<<<<< NOTE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ A Widget will take a certain amount of cells on the homescreen. A cell is usually used to display the icon of one application. As a calculation rule you should define the size of the widget with the formula: ((Number of columns / rows)* 74) - 2. These are device independent pixels and the -2 is used to avoid rounding issues.
+
+As of Android 3.1 a Widgets can be flexible in size, e.g. the user can make it larger or smaller. To enable this for Widgets you can use the android:resizeMode="horizontal|vertical" attribute in the XML configuration file for the widget. 
+
+=============================================== WidgetProvider.java ====
+package info.pathseeker.pishgaman;
+//http://www.vogella.com/articles/AndroidWidgets/article.html
+import java.util.Random;
+
+import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.RemoteViews;
+import android.widget.TextView;
+
+public class WidgetProvider extends AppWidgetProvider {
+
+  private static final String ACTION_CLICK = "ACTION_CLICK";
+
+  @Override
+  public void onUpdate(Context context, AppWidgetManager appWidgetManager,
+      int[] appWidgetIds) {
+
+	  
+ 		SharedPreferences preferences;
+ 		preferences = context.getSharedPreferences("info.pathseeker.Pishgaman", Context.MODE_PRIVATE);
+		String fullname = preferences.getString("fullname", "n/a");
+		String current_service = preferences.getString("current_service", "n/a");
+		String credit = preferences.getString("credit", "n/a");
+		String deposit = preferences.getString("deposit", "n/a");
+		String status = preferences.getString("status", "n/a");
+		String jexpire = preferences.getString("jexpire", "n/a");
+		String gexpire = preferences.getString("gexpire", "n/a");
+
+ 	    
+    // Get all ids
+    ComponentName thisWidget = new ComponentName(context,
+        WidgetProvider.class);
+    int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
+    for (int widgetId : allWidgetIds) {
+      // create some random data
+
+      RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
+          R.layout.widget_layout);
+      Log.w("WidgetExample", fullname);
+
+	
+      remoteViews.setTextViewText(R.id.fullname_widget, String.valueOf(fullname));
+      remoteViews.setTextViewText(R.id.credit_widget, String.valueOf(credit));
+      remoteViews.setTextViewText(R.id.deposit_widget, String.valueOf(deposit));
+      remoteViews.setTextViewText(R.id.status_widget, String.valueOf(status));
+      
+      
+//		LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+//		View view = inflater.inflate( R.layout.widget_layout, null );
+//      
+//	    TextView fullname_TextView = (TextView)view.findViewById(R.id.fullname_widget);
+//	    fullname_TextView.setText(fullname); 
+//   	    TextView credit_TextView = (TextView)view.findViewById(R.id.credit_widget);
+//   	    credit_TextView.setText(credit);
+//   	    TextView deposit_TextView = (TextView)view.findViewById(R.id.deposit_widget);
+//   	    deposit_TextView.setText(deposit);
+//   	    TextView status_TextView = (TextView)view.findViewById(R.id.status_widget);
+//   	    status_TextView.setText(status);
+   	    
+      // Register an onClickListener
+      Intent intent = new Intent(context, WidgetProvider.class);
+
+      intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+      intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
+
+      PendingIntent pendingIntent = PendingIntent.getBroadcast(context,
+          0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+      remoteViews.setOnClickPendingIntent(R.id.fullname, pendingIntent);
+      appWidgetManager.updateAppWidget(widgetId, remoteViews);
+    }
+  }
+} 
+
+
+
+
+=============================================== widget_layout.xml=======
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/myshape"
+    android:orientation="vertical" 
+    >
+    
+   	<TextView
+        android:id="@+id/fullname_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fullname"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        
+         />
+
+    <TextView
+        android:id="@+id/fullname_widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        
+        />
+    
+
+    <TextView
+        android:id="@+id/credit_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/credit"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/credit_widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />  
+
+    <TextView
+        android:id="@+id/deposit_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/deposit"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/deposit_widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+         />  
+   
+
+    <TextView
+        android:id="@+id/status_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/status"
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        
+        />
+
+    <TextView
+        android:id="@+id/status_widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />  
+</LinearLayout> 
+
+
+
+========================================================== Widget updates
+
+A Widget gets its data on a periodic timetable. There are two methods to update a widget, one is based on an XML configuration file and the other is based on the Android AlarmManager service.
+
+In the widget configuration file you can specify a fixed update interval. The system will wake up after this time interval and call your broadcast receiver to update the widget. The smallest update interval is 1800000 milliseconds (30 minutes).
+
+The AlarmManager allows you to be more resource efficient and to have a higher frequency of updates. To use this approach you define a service and schedule this service via the AlarmManager regularly. This service updates the widget.
+
+Please note that a higher update frequency will wake up the phone from the energy safe mode. As a result your widget consumes more energy. 

@@ -1,0 +1,44 @@
+			
+            
+			try {
+                JSONArray jsonArray = new JSONArray(result);
+				ArrayList<String> list = new ArrayList<String>(); 
+                		
+                if (jsonArray != null) { 
+                   int len = jsonArray.length();
+                   Log.i(" len : ", String.valueOf(len));
+                   for (int i=0;i<len;i++){ 
+                    list.add(jsonArray.get(i).toString());
+                   } 
+			} 
+		
+			int index = 0;// Index of object in the ArrayList
+			Log.i("Data",list.get(index).toString());//Preferred Method to get object
+			Log.i("Data",list.toArray()[index].toString());
+            
+            ===========================================================
+            
+            
+            
+            JSONObject parentObject;
+			try {
+				parentObject = new JSONObject(result);
+			ArrayList<String> list = new ArrayList<String>(); 
+				
+			JSONArray jsonArray;
+			jsonArray = new JSONArray(parentObject.get("sale").toString());
+		
+			//Log.i(" UserSale : ",jsonArray.toString());
+							
+			if (jsonArray != null) { 
+			   int len = jsonArray.length();
+			   Log.i(" len : ", String.valueOf(len));
+			   for (int i=0;i<len;i++){ 
+			    list.add(jsonArray.get(i).toString());
+			   } 
+			} 
+		
+			int index = 0;// Index of object in the ArrayList
+			Log.i("Data",list.get(index).toString());//Preferred Method to get object
+			Log.i("Data",list.toArray()[index].toString());
+		

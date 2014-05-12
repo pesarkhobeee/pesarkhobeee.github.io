@@ -1,0 +1,11 @@
+Ctrl-A ?  =>  help
+Ctrl-A c  =>  creat new windows
+Ctrl-A n  => next windows
+Ctrl-A p  => previous windows
+Ctrl-A d => detach Screen
+Ctrl-A k => exit
+Ctrl-A H => creat running log
+
+screen -S "name"
+screen -ls => screen list
+screen -r screen name => reattach

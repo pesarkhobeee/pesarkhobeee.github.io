@@ -1,0 +1,440 @@
+با سلام
+پس از چند روز تحقیق و آزمایش و خطا توانستم قسمت local login  سیستم عامل سخت افزار mikrotik را با freeradius  بکار اندازم که گزارش زیر حاصل آن است:
+0.MikroTik Router Configuration
+
+    Configure the router with proper RADIUS server connection parameters.
+
+    [admin@MikroTik] radius> add service=login address=1.1.1.1 secret="xxx" disabled=no
+    [admin@MikroTik] radius> print detail
+    Flags: X - disabled
+     0   service=login called-id="" domain="" address=1.1.1.1 secret="xxx"
+         authentication-port=1812 accounting-port=1813 timeout=300ms
+         accounting-backup=no
+    [admin@MikroTik] radius>
+
+    Enable local user authorization service to use RADIUS server
+
+    [admin@MikroTik] user aaa> set use-radius=yes
+    [admin@MikroTik] user aaa> print
+            use-radius: yes
+            accounting: yes
+        interim-update: 0s
+         default-group: read
+    [admin@MikroTik] user aaa>
+
+
+1. apt-get install freeradius freeradius-mysql
+2. create a DataBase
+3. Import the MySQL schema from /etc/freeradius/sql/mysql/schema.sql:
+
+    mysql -u root -p radius < /etc/freeradius/sql/mysql/schema.sql
+
+You should have 7 tables as shown below:
+
+    radacct
+    radcheck
+    radgroupcheck
+    radgroupreply
+    radpostauth
+    radreply
+    radusergroup
+
+Edit the file /etc/freeradius/sql.conf and change the following parameters to suite your environment:
+
+    server = "localhost"
+    login = "root"
+    password = "password"
+    radius_db = "radius"
+
+Enable the SQL configuration in /etc/freeradius/radiusd.conf by uncommenting the following line:
+
+    $INCLUDE sql.conf
+
+Enable SQL configuration in the default enabled site /etc/freeradius/sites-available/default:
+
+    authorize {
+        ...
+        sql
+        ...
+    }
+
+    accounting {
+        ...
+        sql
+        ...
+    }
+
+    session {
+        ...
+        sql
+        ...
+    }
+
+    post-auth {
+        ...
+        sql
+        ...
+    }
+
+4. after replac attachment file into /etc/freeradius
+5. insert this line into Db:
+
+--
+-- Dumping data for table `radcheck`
+--
+
+INSERT INTO `radcheck` (`id`, `username`, `attribute`, `op`, `value`) VALUES
+(2, 'farid', 'Cleartext-Password', ':=', 'test');
+
+--
+-- Dumping data for table `radreply`
+--
+
+INSERT INTO `radreply` (`id`, `username`, `attribute`, `op`, `value`) VALUES
+(1, 'farid', 'Mikrotik-Group', '=', 'full');
+
+6. test width:
+username => farid
+password => test
+
+
+پی نوشت:
+لازم به توضیح است در ورژن ۵ routerOS با مشکل کار نکردن اینترفیس وب با freeradius مواجح بودیم که پس از بروز رسانی مشکل حل شد
+
+اگر ارور زیر در حالت دیباگ freeradius  -X گرفته شد : 
+[sql]    expand: SELECT id, username, attribute, value, op           FROM radreply           WHERE username = '%{SQL-User-Name}'           ORDER BY id -> SELECT id, username, attribute, value, op           FROM radreply           WHERE username = 'ukasz'           ORDER BY id
+rlm_sql_mysql: query:  SELECT id, username, attribute, value, op           FROM radreply           WHERE username = 'ukasz'           ORDER BY id
+rlm_sql: Failed to create the pair: Invalid octet string "full" for attribute name "Mikrotik-Group"
+rlm_sql (sql): Error getting data from database
+
+باید
+
+OMG it is so SICK. i have found that in debian not all dictionaries are included in directory /usr/share/freeradius/dictionary file (witch holds $INCLUDE lines per vendor dictionary)
+i was missing $INCLUDE dictionary.mikrotik line
+
+
+
+پایان
+dictionary.asc =========================================================
+
+#
+#	This is the master dictionary file, which references the
+#	pre-defined dictionary files included with the server.
+#
+#	Any new/changed attributes MUST be placed in this file, as
+#	the pre-defined dictionaries SHOULD NOT be edited.
+#
+#	$Id$
+#
+
+#
+#  The DHCP dictionary is used only when the server is built with
+#  "configure --with-dhcp".  It is not (and should not) be used in
+#  other situations.  If you are running just a RADIUS server, this
+#  line can be deleted.  If you are using DHCP, the following line
+#  should be uncommented.
+#
+#  Ideally, the "configure" process should automatically enable this
+#  dictionary, but we don't yet do that.
+#
+#$INCLUDE	/usr/dictionary.dhcp
+
+#
+#	The filename given here should be an absolute path. 
+#
+$INCLUDE	/usr/share/freeradius/dictionary
+
+#
+#	Place additional attributes or $INCLUDEs here.  They will
+#	over-ride the definitions in the pre-defined dictionaries.
+#
+#	See the 'man' page for 'dictionary' for information on
+#	the format of the dictionary files.
+
+#
+#	If you want to add entries to the dictionary file,
+#	which are NOT going to be placed in a RADIUS packet,
+#	add them here.  The numbers you pick should be between
+#	3000 and 4000.
+#
+
+#ATTRIBUTE	My-Local-String		3000	string
+#ATTRIBUTE	My-Local-IPAddr		3001	ipaddr
+#ATTRIBUTE	My-Local-Integer	3002	integer
+
+
+VENDOR		Mikrotik			14988  
+
+BEGIN-VENDOR	Mikrotik
+
+ATTRIBUTE	Mikrotik-Recv-Limit			1	integer
+ATTRIBUTE	Mikrotik-Xmit-Limit			2	integer
+
+# this attribute is unused
+ATTRIBUTE	Mikrotik-Group				3	string
+
+ATTRIBUTE	Mikrotik-Wireless-Forward		4	integer
+ATTRIBUTE	Mikrotik-Wireless-Skip-Dot1x		5	integer
+ATTRIBUTE	Mikrotik-Wireless-Enc-Algo		6	integer
+ATTRIBUTE	Mikrotik-Wireless-Enc-Key		7	string
+ATTRIBUTE	Mikrotik-Rate-Limit			8	string
+ATTRIBUTE	Mikrotik-Realm				9	string
+ATTRIBUTE	Mikrotik-Host-IP			10	ipaddr
+ATTRIBUTE	Mikrotik-Mark-Id			11	string
+ATTRIBUTE	Mikrotik-Advertise-URL			12	string
+ATTRIBUTE	Mikrotik-Advertise-Interval		13	integer
+ATTRIBUTE	Mikrotik-Recv-Limit-Gigawords		14	integer
+ATTRIBUTE	Mikrotik-Xmit-Limit-Gigawords		15	integer
+# MikroTik Values
+
+VALUE	Mikrotik-Wireless-Enc-Algo	No-encryption		0
+VALUE	Mikrotik-Wireless-Enc-Algo	40-bit-WEP		1
+VALUE	Mikrotik-Wireless-Enc-Algo	104-bit-WEP		2 
+
+END-VENDOR	Mikrotik
+
+
+
+
+
+
+clients.conf ===========================================================
+
+# -*- text -*-
+##
+## clients.conf -- client configuration directives
+##
+##	$Id$
+
+#######################################################################
+#
+#  Define RADIUS clients (usually a NAS, Access Point, etc.).
+
+#
+#  Defines a RADIUS client.
+#
+#  '127.0.0.1' is another name for 'localhost'.  It is enabled by default,
+#  to allow testing of the server after an initial installation.  If you
+#  are not going to be permitting RADIUS queries from localhost, we suggest
+#  that you delete, or comment out, this entry.
+#
+#
+
+#
+#  Each client has a "short name" that is used to distinguish it from
+#  other clients.
+#
+#  In version 1.x, the string after the word "client" was the IP
+#  address of the client.  In 2.0, the IP address is configured via
+#  the "ipaddr" or "ipv6addr" fields.  For compatibility, the 1.x
+#  format is still accepted.
+#
+client localhost {
+	#  Allowed values are:
+	#	dotted quad (1.2.3.4)
+	#       hostname    (radius.example.com)
+	ipaddr = 127.0.0.1
+
+	#  OR, you can use an IPv6 address, but not both
+	#  at the same time.
+#	ipv6addr = ::	# any.  ::1 == localhost
+
+	#
+	#  A note on DNS:  We STRONGLY recommend using IP addresses
+	#  rather than host names.  Using host names means that the
+	#  server will do DNS lookups when it starts, making it
+	#  dependent on DNS.  i.e. If anything goes wrong with DNS,
+	#  the server won't start!
+	#
+	#  The server also looks up the IP address from DNS once, and
+	#  only once, when it starts.  If the DNS record is later
+	#  updated, the server WILL NOT see that update.
+	#
+
+	#  One client definition can be applied to an entire network.
+	#  e.g. 127/8 should be defined with "ipaddr = 127.0.0.0" and
+	#  "netmask = 8"
+	#
+	#  If not specified, the default netmask is 32 (i.e. /32)
+	#
+	#  We do NOT recommend using anything other than 32.  There
+	#  are usually other, better ways to achieve the same goal.
+	#  Using netmasks of other than 32 can cause security issues.
+	#
+	#  You can specify overlapping networks (127/8 and 127.0/16)
+	#  In that case, the smallest possible network will be used
+	#  as the "best match" for the client.
+	#
+	#  Clients can also be defined dynamically at run time, based
+	#  on any criteria.  e.g. SQL lookups, keying off of NAS-Identifier,
+	#  etc.
+	#  See raddb/sites-available/dynamic-clients for details.
+	#
+
+#	netmask = 32
+
+	#
+	#  The shared secret use to "encrypt" and "sign" packets between
+	#  the NAS and FreeRADIUS.  You MUST change this secret from the
+	#  default, otherwise it's not a secret any more!
+	#
+	#  The secret can be any string, up to 8k characters in length.
+	#
+	#  Control codes can be entered vi octal encoding,
+	#	e.g. "\101\102" == "AB"
+	#  Quotation marks can be entered by escaping them,
+	#	e.g. "foo\"bar"
+	#
+	#  A note on security:  The security of the RADIUS protocol
+	#  depends COMPLETELY on this secret!  We recommend using a
+	#  shared secret that is composed of:
+	#
+	#	upper case letters
+	#	lower case letters
+	#	numbers
+	#
+	#  And is at LEAST 8 characters long, preferably 16 characters in
+	#  length.  The secret MUST be random, and should not be words,
+	#  phrase, or anything else that is recognizable.
+	#
+	#  The default secret below is only for testing, and should
+	#  not be used in any real environment.
+	#
+	secret		= testing123
+
+	#
+	#  Old-style clients do not send a Message-Authenticator
+	#  in an Access-Request.  RFC 5080 suggests that all clients
+	#  SHOULD include it in an Access-Request.  The configuration
+	#  item below allows the server to require it.  If a client
+	#  is required to include a Message-Authenticator and it does
+	#  not, then the packet will be silently discarded.
+	#
+	#  allowed values: yes, no
+	require_message_authenticator = no
+
+	#
+	#  The short name is used as an alias for the fully qualified
+	#  domain name, or the IP address.
+	#
+	#  It is accepted for compatibility with 1.x, but it is no
+	#  longer necessary in 2.0
+	#
+#	shortname	= localhost
+
+	#
+	# the following three fields are optional, but may be used by
+	# checkrad.pl for simultaneous use checks
+	#
+
+	#
+	# The nastype tells 'checkrad.pl' which NAS-specific method to
+	#  use to query the NAS for simultaneous use.
+	#
+	#  Permitted NAS types are:
+	#
+	#	cisco
+	#	computone
+	#	livingston
+	#	max40xx
+	#	multitech
+	#	netserver
+	#	pathras
+	#	patton
+	#	portslave
+	#	tc
+	#	usrhiper
+	#	other		# for all other types
+
+	#
+	nastype     = other	# localhost isn't usually a NAS...
+
+	#
+	#  The following two configurations are for future use.
+	#  The 'naspasswd' file is currently used to store the NAS
+	#  login name and password, which is used by checkrad.pl
+	#  when querying the NAS for simultaneous use.
+	#
+#	login       = !root
+#	password    = someadminpas
+
+	#
+	#  As of 2.0, clients can also be tied to a virtual server.
+	#  This is done by setting the "virtual_server" configuration
+	#  item, as in the example below.
+	#
+#	virtual_server = home1
+
+	#
+	#  A pointer to the "home_server_pool" OR a "home_server"
+	#  section that contains the CoA configuration for this
+	#  client.  For an example of a coa home server or pool,
+	#  see raddb/sites-available/originate-coa
+#	coa_server = coa
+}
+
+# IPv6 Client
+#client ::1 {
+#	secret		= testing123
+#	shortname	= localhost
+#}
+#
+# All IPv6 Site-local clients
+#client fe80::/16 {
+#	secret		= testing123
+#	shortname	= localhost
+#}
+
+#client some.host.org {
+#	secret		= testing123
+#	shortname	= localhost
+#}
+
+#
+#  You can now specify one secret for a network of clients.
+#  When a client request comes in, the BEST match is chosen.
+#  i.e. The entry from the smallest possible network.
+#
+#client 192.168.0.0/24 {
+#	secret		= testing123-1
+#	shortname	= private-network-1
+#}
+#
+#client 192.168.0.0/16 {
+#	secret		= testing123-2
+#	shortname	= private-network-2
+#}
+
+
+#client 10.10.10.10 {
+#	# secret and password are mapped through the "secrets" file.
+#	secret      = testing123
+#	shortname   = liv1
+#       # the following three fields are optional, but may be used by
+#       # checkrad.pl for simultaneous usage checks
+#	nastype     = livingston
+#	login       = !root
+#	password    = someadminpas
+#}
+
+#######################################################################
+#
+#  Per-socket client lists.  The configuration entries are exactly
+#  the same as above, but they are nested inside of a section.
+#
+#  You can have as many per-socket client lists as you have "listen"
+#  sections, or you can re-use a list among multiple "listen" sections.
+#
+#  Un-comment this section, and edit a "listen" section to add:
+#  "clients = per_socket_clients".  That IP address/port combination
+#  will then accept ONLY the clients listed in this section.
+#
+#clients per_socket_clients {
+#	client 192.168.3.4 {
+#		secret = testing123
+#        }
+#}
+client 0.0.0.0/0 {
+        secret = xxxx
+        shortname = xxx
+}

@@ -1,0 +1,48 @@
+
+Insert timestamp
+
+:r !date
+
+vertical selection
+
+gg 0
+ctrl+v
+<arrows>
+
+Save a file in case you forgot sudo
+
+:w !sudo tee %
+
+
+
+=======================================================================
+
+
+
+Basic search and replaceEdit
+
+The :substitute command searches for a text pattern, and replaces it with a text string. There are many options, but these are what you probably want:
+
+:%s/foo/bar/g
+    Find each occurrence of 'foo' (in all lines), and replace it with 'bar'. 
+
+:s/foo/bar/g
+    Find each occurrence of 'foo' (in the current line only), and replace it with 'bar'. 
+
+:%s/foo/bar/gc
+    Change each 'foo' to 'bar', but ask for confirmation first. 
+
+:%s/\<foo\>/bar/gc
+    Change only whole words exactly matching 'foo' to 'bar'; ask for confirmation. 
+
+:%s/foo/bar/gci
+    Change each 'foo' (case insensitive) to 'bar'; ask for confirmation. 
+    This may be wanted after using :set noignorecase to make searches case sensitive (the default). 
+
+:%s/foo/bar/gcI
+    Change each 'foo' (case sensitive) to 'bar'; ask for confirmation. 
+    This may be wanted after using :set ignorecase to make searches case insensitive. 
+
+The g flag means global – each occurrence in the line is changed, rather than just the first. This tip assumes the default setting for the 'gdefault' and 'edcompatible' option (off), which requires that the g flag be included in %s///g to perform a global substitute. Using :set gdefault creates confusion because then %s/// is global, whereas %s///g is not (that is, g reverses its meaning).
+
+When using the c flag, you need to confirm for each match what to do.
