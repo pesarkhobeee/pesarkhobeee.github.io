@@ -1,1 +1,0 @@
-Remove host key in /home/user/.ssh/known_hosts

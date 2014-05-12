@@ -1,3 +1,5 @@
 ~/.vimrc
 :set number
 :highlight Normal ctermbg=black ctermfg=white
+==============================================================
+autocmd BufWritePre * :%s/’/'/ge
