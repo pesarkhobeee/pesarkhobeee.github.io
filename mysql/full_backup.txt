@@ -1,0 +1,1 @@
+mysqldump -u root -p  --all-databases --routines --max_allowed_packet=512M > mysql.sql

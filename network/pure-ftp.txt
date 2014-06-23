@@ -1,0 +1,84 @@
+#!/bin/bash
+#
+# Startup Script
+#
+
+DAEMON="pure-ftpd"
+PID_FILE="/var/run/pure-ftpd.pid"
+START="/usr/sbin/pure-ftpd"
+STOP="kill -TERM $(cat ${PID_FILE})"
+TIMEOUT="5"
+PARAM="  --logpid                             \
+         --ipv4only                           \
+         --chrooteveryone                     \
+         --daemonize                          \
+         --maxclientsnumber 50                \
+         --maxclientsperip  5                 \
+         --noanonymous                        \
+         --fortunesfile /etc/issue            \
+         --pidfile /var/run/pure-ftpd.pid     \
+         --dontresolve                        \
+         --anonymouscantupload                \
+         --maxidletime 3                      \
+         --maxdiskusagepct 95                 \
+         --altlog stats:/var/log/pureftpd.log \
+         --nochmod                            \
+         --antiwarez                          \
+         --userbandwidth 10                   \
+         --minuid 1000                        \
+         --umask 003:002                      \
+         --peruserlimits 3:0                  \
+         --customerproof                      \
+         --createhome                         \
+         --login puredb:/etc/pureftpd.pdb     \
+         --userbandwidth 5120:5120
+"
+
+start()
+{
+  echo "Starting ${DAEMON} : ${START} "
+  PROCESS=$(ps -A | egrep " ${DAEMON}$")
+  if [ "${PROCESS}" == "" ]; then
+    if [ -f "${PID_FILE}" ] ; then
+      rm "${PID_FILE}"
+    fi
+    ${START} ${PARAM}
+    ps -A | egrep " ${DAEMON}$"
+    echo
+  fi
+}
+
+stop()
+{
+  echo -n "Stopping ${DAEMON} "
+  ${STOP}
+  sleep 1
+  for I in $(seq 1 $TIMEOUT); do
+    PROCESS=$(ps -A | egrep " ${DAEMON}$")
+    if [ "${PROCESS}" == "" ]; then
+      break
+    else
+      echo -n "${I} "
+    fi
+    sleep 1
+  done
+  echo
+  ps -A | egrep " ${DAEMON}$"
+}
+
+case "$1" in
+  'start')
+    start
+    ;;
+  'stop')
+    stop
+    ;;
+  'restart')
+    stop
+    sleep 1
+    start
+    ;;
+  *)
+    echo "usage $0 start|stop|restart"
+    ;;
+esac

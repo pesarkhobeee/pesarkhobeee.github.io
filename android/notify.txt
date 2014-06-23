@@ -1,0 +1,19 @@
+     // this
+        String ns = Context.NOTIFICATION_SERVICE;
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(ns);
+
+        int icon = R.drawable.notification_icon;        
+        CharSequence tickerText = "هشدار"; // ticker-text
+        long when = System.currentTimeMillis();         
+        Context context = getApplicationContext();     
+        CharSequence contentTitle = "هشدار";  
+        CharSequence contentText = "اکانت شما به زودی منقضی میشود، لطفا نسبت به شارژ اکانت خود اقدام فرمایید.";      
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+        @SuppressWarnings("deprecation")
+		Notification notification = new Notification(icon, tickerText, when);
+        notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
+
+        // and this
+        final int HELLO_ID = 1;
+        mNotificationManager.notify(HELLO_ID, notification);

@@ -1,0 +1,26 @@
+SELECT datediff( pr_endtime, pr_starttime ) AS date_diff FROM problem_reports;
+
+SELECT TIME_TO_SEC(TIMEDIFF(pr_endtime,pr_starttime))/86400 FROM problem_reports;
+
+SELECT TIME_TO_SEC( TIMEDIFF( pr_endtime, pr_starttime))/3600 FROM problem_reports;
+
+
+
+http://ellislab.com/forums/viewthread/186132/P190
+http://www.grocerycrud.com/documentation/options_functions/callback_column
+
+
+DROP TRIGGER [IF EXISTS] [schema_name.]trigger_name;
+
+DROP TRIGGER IF EXISTS diff_datetime;
+CREATE
+        TRIGGER `diff_datetime` BEFORE UPDATE
+        ON `problem_reports` FOR EACH ROW
+                set new.pr_duration = TIME_TO_SEC( TIMEDIFF( new.pr_endtime, new.pr_starttime))/60;
+delimiter ;
+
+
+
+
+
+ALTER TABLE `problem_reports` ADD `pr_duration` VARCHAR( 30 ) NOT NULL 

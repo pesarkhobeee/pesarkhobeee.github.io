@@ -1,0 +1,2 @@
+tar -zcvf  webroot.tar.gz webroot/
+tar -zxf webroot.tar.gz
