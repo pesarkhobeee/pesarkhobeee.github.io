@@ -1,0 +1,29 @@
+
+concepts
+
+Gitolite: Hosting git repositories — Gitolite allows you to setup git hosting on a central server, with very fine-grained access control and many (many!) more powerful features. 
+installing Gitolite(Debian):
+
+step 1:
+execute command
+-@server: apt-get install gitolite
+
+step 2:
+scp administrator public-key
+-@local_pc: scp public_rsa.pub user@your.server.address:/admin.pub
+
+step 3:
+configure gitolite package
+-@server: dpkg-reconfigure gitolite
+if asked for administrator ssh key type: /admin.pub
+else continue on with your own configurations
+
+step 4 (optional to add users) :
+-@local_pc: scp user1_public_rsa.pub user@your.server.address:/user_1.pub
+-@local_pc: scp user2_public_rsa.pub user@your.server.address:/user_2.pub
+-@server: gl-setup /user_1.pub
+-@server: gl-setup /user_2.pub
+
+step 5:
+clone gitolite-admin repo
+-@local_pc: git clone ssh://{gitolite username}@your.server.address:/gitolite-admin
