@@ -1,0 +1,102 @@
+body { font-family:Arial, Helvetica, sans-serif; color:#444; }
+
+h1, h2,h3 {
+	border-bottom:1px solid #444;
+	padding-bottom:5px;
+}
+h2, h3 {
+	margin-top:40px;
+}
+#top-bar-content #contact {
+	float:right;
+}
+#header .circles {
+	display:none;
+}
+#header #about-me {
+	width:210px;
+	height:210px;
+	background-color:#eee;
+	background:transparent url('../img/profile.png') center center no-repeat;
+	margin:0;
+	display:block;
+}
+#main {
+	width:940px;
+	padding:10px;
+	margin:0 auto;
+}
+.first {
+	margin-left:0!important;
+	padding-left:0!important;
+}
+.img-porfolio {
+	float:left;
+	margin-left:20px;
+	margin-bottom:20px;
+	margin-top:20px;
+	border:5px solid #555;
+}
+.img-porfolio img {
+	width:162px;
+	height:162px;
+}
+.img-porfolio img {
+	border:0;
+}
+.img-porfolio span {
+	display:none;
+}
+#footer {
+	clear:both;
+	margin-top:20px;
+}
+
+.skill-container {
+	padding:0 0 20px 0;
+}
+.skill-container .skill-name {
+	float:left;
+	width:160px;
+	font-weight:bold;
+}
+.skill-container .skill-strenght {
+	float:left;
+	width:300px;
+	color:#fff;
+	padding:3px 10px;
+}
+.skill-container .skill-strenght .skill {
+	background-color:#D4414B;
+	height:10px;
+}
+.skill-container .skill-strenght .one {
+	width:10%;
+}
+.skill-container .skill-strenght .two {
+	width:20%;
+}
+.skill-container .skill-strenght .three {
+	width:30%;
+}
+.skill-container .skill-strenght .four {
+	width:40%;
+}
+.skill-container .skill-strenght .five {
+	width:50%;
+}
+.skill-container .skill-strenght .six {
+	width:60%;
+}
+.skill-container .skill-strenght .seven {
+	width:70%;
+}
+.skill-container .skill-strenght .eight {
+	width:80%;
+}
+.skill-container .skill-strenght .nine {
+	width:90%;
+}
+.skill-container .skill-strenght .ten {
+	width:100%;
+}
