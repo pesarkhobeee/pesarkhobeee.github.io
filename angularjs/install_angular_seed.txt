@@ -1,0 +1,7 @@
+sudo npm install bower -g
+git clone https://github.com/angular/angular-seed.git
+cd angular-seed
+npm config set registry http://registry.npmjs.org/
+export PHANTOMJS_CDNURL=http://cnpmjs.org/downloads
+npm install
+npm update
