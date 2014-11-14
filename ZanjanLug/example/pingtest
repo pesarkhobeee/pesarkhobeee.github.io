@@ -1,0 +1,11 @@
+# !/bin/bash
+
+ while [ 1 ]
+  do
+	ping -q -c 1 8.8.8.8 
+	if [ $? -eq 0 ] ; then
+		notify-send "internet ok"
+		exit
+	fi
+
+ done

@@ -1,0 +1,144 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{pdfborder={0 0 0},colorlinks=true}
+\usepackage{fancyvrb}
+\usepackage{setspace}
+\usepackage{xepersian}
+
+
+\settextfont[Scale=1]{XB Zar}
+\setlatintextfont[Scale=1]{Junicode}
+\setdigitfont{XB Zar}
+
+\defpersianfont\nastaliq[Scale=2]{IranNastaliq}
+\defpersianfont\farsifontshafigh[Scale=1.1]{XB Shafigh}
+
+
+\title{تنظیم صفحه نمایش با استفاده از \lr{XRandR}}
+%\author{\lr{Michael Reed}}
+
+\begin{document}
+
+\maketitle
+\newpage
+\begin{center}
+\nastaliq{به نام خدا}
+\end{center}
+یکی از مشکلاتی که کاربران با آن درگیر هستند تنظیم نبودن صفحه نمایش در لینوکس مخصوصاً اوبونتو می‌باشد.این مشکل از آنجا ناشی می‌شود که شناسایی سخت‌افزار مربوطه به درستی صورت نگرفته و فهرست نامناسبی از حالت‌های صفحه نمایش ظاهر می‌شود. آنچه در ادامه می‌خوانید راه‌حلی است که در آن ما با استفاده از \lr{ (X Rotate and Resize)XRandR}، \lr{X} را به طرزی بیرحمانه مجبور می‌کنیم که حالت دلخواه صفحه نمایش را برای ما (در صورتی که از راه عادی و سنتی آن امکان‌پذیر نباشد) ایجاد کند.\\
+زمانی که حالت جدیدی را اضافه می‌کنید و صفحه نمایش در آن حالت کار می‌کند، می‌توانید تنظیمات مربوط به آن را به فایل \lr{xorg.conf} یا  به قسمت \lr{startup script} مربوط به  \lr{login manager} اضافه کنید. در این مقاله فرض بر این گرفته شده  که شما از توزیع اوبونتو استفاده می‌کنید اما بایستی بتوانید آن را با  توزیع‌های دیگر نیز به کار ببرید.
+اگر شما با شروع به کار X مشکلی دارید که به موجب آن مونیتور شما بی‌درنگ سیاه می‌شود و اعلام می‌کند که سیگنال ورودی از محدوده خارج است ، بهتر است تلاش کنید تا  حالت صفحه نمایش را بوسیله فشردن همزمان کلیدهای \lr{ctrl+alt+[minus symbol]} تغییر دهید. مکرراً فشار دادن این ترکیب  ممکن است  باعث انتخاب حالتی شود که صفحه نمایش شما کار کند.\\
+زمانی که شما یک وضعیت نمایش قابل استفاده دارید، یک محیط خط فرمان را باز کرده و دستور زیر را وارد کنید :
+\begin{LTR}
+\begin{Verbatim}[frame=single,formatcom=\color{magenta}]
+xrandr
+\end{Verbatim}
+\end{LTR}
+وقتی شما XRandR  را بدون هیچگونه پارامتری اجرا می‌کنید ، فهرستی از حالت‌های صفحه نمایش را مشاهده خواهید کرد که در حال حاضر پشتیبانی می‌شود. نمونه خروجی این دستور ممکن است چیزی شبیه به این باشد :
+\begin{LTR}
+\begin{Verbatim}[frame=single,formatcom=\color{cyan}]
+Screen 0: minimum 800x600, current 800x600 , maximum 800x600
+default connected 800x600 +0+0 0mm x 0mm
+800x600 60.0
+\end{Verbatim}
+\end{LTR}
+اگر وضوح صفحه نمایش و نرخ نوسازی که مد نظر  شما می‌باشد در اینجا فهرست شده باشد، آنگاه یک ایده خوب این است که تلاش کنید با استفاده از ابزارهای استاندارد محیط رومیزی یا ابزارهای ویژه راه‌انداز کارت گرافیک حالت صفحه نمایش را تغییر دهید.\\
+اگر وضوح موردنظرتان نمایش داده نشود، شما می‌توانید آن را با استفاده از XRandR به سیستم اضافه کنید . برای این کار ابتدا باید یک modeline با استفاده از فرمان  cvt تولید کنید. برای مثال اگر شما به یک وضوح 1280x1024 و نرخ نوسازی $60Hz$  نیاز دارید باید بنویسید :
+\begin{LTR}
+\begin{Verbatim}[frame=single,formatcom=\color{magenta}]
+cvt 1280 1024 60
+\end{Verbatim}
+\end{LTR}
+خروجی باید چیزی شبیه به این باشد: 
+\begin{LTR}
+\begin{Verbatim}[frame=single,formatcom=\color{cyan}]
+# 1280x1024 59.89 Hz (CVT 1.31M4) hsync: 63.67 kHz; 
+pclk: 109.00 MHz
+Modeline "1280x1024_60.00" 109.00 1280 1368 1496 
+1712 1024 1027 1034 1063 -hsync +vsyn
+\end{Verbatim}
+\end{LTR}
+حال باید این حالت را با استفاده از  XRandaR به سیستم اضافه کنید:
+\begin{LTR}
+\begin{Verbatim}[frame=single,formatcom=\color{magenta}]
+xrandr --newmode "1280x1024_60.00" 109.00 1280 1368 1496 
+1712  1024 1027 1034 1063 -hsync +vsync
+\end{Verbatim}
+\end{LTR}
+من اطلاعات فنی موردنیاز را با کپی کردن تمامی نوشته‌های  بعد از کلمه Modeline از خروجی دستور cvt به دست آوردم. حال دوباره دستور xrandr را اجرا کنید تا مطمئن شوید که حالت جدید به سیستم اضافه شده است. شما باید الان  آن را به همراه حالت‌های دیگر مشاهده کنید. نکته اینکه عبارت 
+\begin{BVerbatim}
+"1280x1024_60.00"
+\end{BVerbatim}
+ در این مثال، در حقیقت نام حالت  می‌باشد و اعداد حقیقی موجود در نام بی‌ربط هستند. زمانی که حالت ایجاد شد، با دستور ذیل آن را به خروجی صفحه نمایش اضافه کنید :
+\begin{LTR}
+\begin{Verbatim}[frame=single,formatcom=\color{magenta}]
+xrandr --addmode default 1280x1024_60.00
+\end{Verbatim}
+\end{LTR}
+در تنظیمات سیستم من، خروجی نمایش default نامیده شده است ، چنان که بوسیله خط دوم از خروجی دستور xrandr بدون پارامتر مشخص شده است. اکنون تلاش کنید وضعیت به حالت جدید صفحه نمایش تغییر دهید:
+\begin{LTR}
+\begin{Verbatim}[frame=single,formatcom=\color{magenta}]
+xrandr --output default --mode 1280x1024_60.00
+\end{Verbatim}
+\end{LTR}
+اگر این دستورکار کند شما آماده هستید تا تغییرات را دایمی کنید. شما می‌توانید این کار را با استفاده از ویرایش فایل xorg.conf یا اضافه کردن یک سلسله از دستورات به فایل startup  انجام دهید.\\
+بطور اساسی شما باید modeline را به قسمت Monitor فایل xorg.conf و خود mode را به قسمت فرعی  Display که خود آن هم در داخل قسمت اصلی Screen قرار دارد اضافه کنید یا اینکه آن را با چیزهایی از قبل در آنجا بودند جایگزین کنید.\\
+بنابراین با توجه به مثال فوق قسمت Monitor باید تقریباً به این شکل باشد:
+\begin{LTR}
+\begin{Verbatim}[frame=single,formatcom=\color{red}]
+Section "Monitor"
+    Identifier "default"
+    Modeline "1280x1024_60.00" 109.00 1280 1368 1496 
+    1712 1024 1027 1034 1063 -hsync +vsync 
+    Option "PreferredMode" "1280x1024_60.00"
+EndSection
+\end{Verbatim}
+\end{LTR}
+و قسمت Screen نیز باید به این شکل باشد :
+\begin{LTR}
+\begin{Verbatim}[frame=single,formatcom=\color{red}]
+Section "Screen"
+    Identifier     "Screen0"
+    Device         "Device0"
+    Monitor        "Monitor0"
+    DefaultDepth    24
+    SubSection     "Display"
+    Modes “1280x1024_60.00”
+        Depth       24
+    EndSubSection
+EndSection
+\end{Verbatim}
+\end{LTR}
+کامپیوتر را دوباره راه‌اندازی کنید.
+\\
+\\
+*راه دیگر انجام این کار اضافه کردن این سلسله دستورات به \lr{login manager} می‌باشد. این  آخرین راهی است که در صورت کارا نبودن راه‌های دیگر به آن متوسل می‌شویم که البته خیلی خوب کار می‌کند.
+اگر \lr{login manager} شما \lr{(KDE)KDM} باشد، آنگاه شما می‌توانید \lr{startup script} آن را به این روش ویرایش کنید :
+\begin{LTR}
+\begin{Verbatim}[frame=single,formatcom=\color{magenta}]
+sudo kwrite /etc/kde4/kdm/Xsetup
+\end{Verbatim}
+\end{LTR}
+و اگر \lr{(GNOME)GDM} باشد به این روش عمل کنید :
+\begin{LTR}
+\begin{Verbatim}[frame=single,formatcom=\color{magenta}]
+sudo gedit /etc/gdm/Init/Default
+\end{Verbatim}
+\end{LTR}
+حال از روشی که در مثال فوق بکار بردیم استفاده کرده وخطوط مربوط به دستورات را به این فایل کپی می‌کنیم:
+\begin{LTR}
+\begin{Verbatim}[frame=single,formatcom=\color{red}]
+xrandr --newmode "1280x1024_60.00" 109.00 1280 1368 1496 
+1712 1024 1027 1034 1063 -hsync +vsync
+xrandr --addmode default 1280x1024_60.00
+xrandr --output default --mode 1280x1024_60.00
+\end{Verbatim}
+\end{LTR}
+
+\begin{flushleft}
+\farsifontshafigh{پایان}
+\end{flushleft}
+
+\href{http://www.linuxjournal.com/content/guerrilla-tactics-force-screen-mode-ubuntu}{منبع}\\
+ترجمه : \lr{sadegh.msa@gmail.com}
+\end{document}
