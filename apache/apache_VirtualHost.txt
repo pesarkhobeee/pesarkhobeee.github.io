@@ -7,10 +7,10 @@ ServerName  test
 DocumentRoot /home/farid/htdocs/test
 <Directory /home/farid/htdocs/test>
         Options -Indexes
-        AllowOverride All
-
-        Order allow,deny
-        Allow from all
+        # AllowOverride All      # Deprecated
+        # Order Allow,Deny       # Deprecated
+        # Allow from all         # Deprecated
+        Require all granted    # << New way of doing it
 </Directory>
 
 </VirtualHost>
