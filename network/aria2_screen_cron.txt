@@ -1,0 +1,3 @@
+0 2 * * * /usr/bin/screen -dmS filmjoo /home/pi/Downloads/download.sh 
+
+touch /home/pi/Downloads/session.txt && aria2c  --save-session=/home/pi/Downloads/session.txt --input-file=/home/pi/Downloads/session.txt -x16 -s16 -k1M --dir=/home/pi/Downloads  
