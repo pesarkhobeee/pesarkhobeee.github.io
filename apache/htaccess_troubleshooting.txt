@@ -1,0 +1,20 @@
+First, note that restarting httpd is not necessary for .htaccess files. .htaccess files are specifically for people who don't have root - ie, don't have access to the httpd server config file, and can't restart the server. As you're able to restart the server, you don't need .htaccess files and can use the main server config directly.
+
+Secondly, if .htaccess files are being ignored, you need to check to see that AllowOverride is set correctly. See http://httpd.apache.org/docs/2.4/mod/core.html#allowoverride for details. You need to also ensure that it is set in the correct scope - ie, in the right block in your configuration. Be sure you're NOT editing the one in the block, for example.
+
+Third, if you want to ensure that a .htaccess file is in fact being read, put garbage in it. An invalid line, such as "INVALID LINE HERE", in your .htaccess file, will result in a 500 Server Error when you point your browser at the directory containing that file. If it doesn't, then you don't have AllowOverride configured correctly.
+
+
+
+	
+Configure Apache mod_rewrite
+
+a2enmod rewrite
+
+add the following code to /etc/apache2/sites-available/default
+
+AllowOverride All
+
+Restart apache
+
+/etc/init.d/apache2 restart

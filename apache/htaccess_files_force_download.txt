@@ -1,0 +1,19 @@
+
+
+On your command line:
+
+Install mod_headers
+
+sudo a2enmod headers
+
+and then restart apache
+
+service apache2 restart
+
+
+
+<Files *.*>
+        ForceType application/octet-stream
+        Header set Content-Disposition attachment
+</Files>
+

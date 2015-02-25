@@ -1,0 +1,5 @@
+ <Files "TED.mp4">
+ Order deny,allow
+ Deny from all
+ Allow from 78.38.35.253 198.23.143.251
+</Files>
