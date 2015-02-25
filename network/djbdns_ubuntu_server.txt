@@ -1,0 +1,174 @@
+First, install the packages:
+Code:
+
+apt-get install daemontools
+apt-get install daemontools-run
+apt-get install ucspi-tcp
+apt-get install djbdns
+
+Then, add the necessary user accounts:
+Code:
+
+adduser --no-create-home --disabled-login --shell /bin/false dnslog
+adduser --no-create-home --disabled-login --shell /bin/false tinydns
+
+Configuration.
+Step 1:
+Code:
+
+tinydns-conf tinydns dnslog /etc/tinydns/ EXTERNAL.IP.ADDRESS
+
+(where EXTERNAL.IP.ADDRESS == your internet IP)
+
+Step 2:
+Code:
+
+mkdir /etc/service ; cd /etc/service ; ln -sf /etc/tinydns/
+
+Start it:
+Code:
+
+initctl start svscan
+
+Check it:
+Code:
+
+svstat /etc/service/tinydns
+
+Stop it:
+Code:
+
+svc -d /etc/service/tinydns
+
+Start it:
+Code:
+
+svc -u /etc/service/tinydns
+
+Now you just need to set up your records. This URL will tell you how: http://cr.yp.to/djbdns/tinydns-data.html
+
+
+
+
+
+cd /etc/tinydns/root
+vi data
+
+################################################################################
+# Documentation: http://cr.yp.to/djbdns/tinydns-data.html
+################################################################################
+#
+# SOA Record
+#     Zfqdn:mname:rname:ser:ref:ret:exp:min:ttl:timestamp:lo
+#         mname: primary name server
+#         rname: contact address
+#         ser: serial number (default: the modification time of the data file)
+#         ref: refreshtime (default: 16384 seconds / 04:33:04)
+#         ret: retry time (default: 2048 seconds / 00:34:08)
+#         exp: expire time (default: 1048576 seconds / 12 day 03:16:16)
+#         min: minimum time (default: 2560 seconds / 00:42:40)
+#
+# NS  Record
+#     .fqdn:ip:x:ttl:timestamp:lo
+#         x: NS record
+#
+# A Record
+#     +fqdn:ip:ttl:timestamp:lo
+#
+# MX Record
+#     @fqdn:ip:x:dist:ttl:timestamp:lo
+#         x: mx record
+#         dist: distance (default: 0)
+#
+
+# General example
+.example.org:172.16.20.2:ns1.example.org:259200
+.20.16.172.in-addr.arpa:172.16.20.2:ns1.example.org:259200
+=challenger.example.org:172.16.20.1:86400
++www.example.org:172.16.20.1:86400
+^*.20.16.172.in-addr.arpa:ip.example.org
+
+# SOA Records
+Zexample.org:ns1.example.org:hostmaster.example.org:2010041800:16384:2048:1814400:3600
+Z20.16.172.in-addr.arpa:ns1.example.org:hostmaster.example.org:2010041800:16384:2048:1814400:3600
+
+# NS Records
+.example.org::ns1.example.org:259200
+.example.org::ns2.example.org:259200
+.20.16.172.in-addr.arpa::ns1.example.org:259200
+.20.16.172.in-addr.arpa::ns2.example.org:259200
+.230.168.192.in-addr.arpa::ns1.example.org:259200
+.230.168.192.in-addr.arpa::ns2.example.org:259200
+
+# PTR Records
+^*.230.168.192.in-addr.arpa:ip.example.org:86400
+^*.20.16.172.in-addr.arpa:ip.example.org:600
+^79.20.16.172.in-addr.arpa:mail.example.org:60
+
+# MX Records
+@example.org::mail.example.org::259200
+
+# Host Records
+=ns1.example.org:172.16.20.50:600
+=ns2.example.org:172.16.160.27:600
+=tailor.example.org:10.20.30.40:600
++example.org:10.20.30.40:60
++www.example.org:10.20.30.40:60
+
+
+# domain: example.net
+Zexample.net:ns1.zanjannetworking.com:hostmaster.zanjannetworking.com:2012061500:16384:2048:1814400:600
+.example.net::ns1.zanjannetworking.com:600
+.example.net::ns2.zanjannetworking.com:600
+@example.net::mail.example.net::600
+=example.net:192.168.166.123:600
++www.example.net:192.168.166.123:600
++ftp.example.net:192.168.166.123:600
++mail.example.net:192.168.166.123:600
++cpanel.example.net:192.168.166.123:600
++whm.example.net:192.168.166.123:600
++webmail.example.net:192.168.166.123:600
++webdisk.example.net:192.168.166.123:600
+
+# Other records (MX test)
+#'example.net:v=spf1\040ip4\072192.168.166.111\040-all:60
+#:example.net:99:\035v=spf1\040ip4\072192.168.166.111\040-all:60
+#"v=spf1 ip4:192.168.71.111 -all"
+#'example.net:v=spf1\040ip4\072192.168.166.111\040-all:60
+#'example.net:v=spf1\040mx\040ip4\072192.168.166.111\040mx\072mail.example.net\040-all:60
+#:example.net:99:\072v=spf1\040mx\040ip4\072192.168.166.111\040mx\072mail.example.net\040-all:60
+
+
+then run make command for create/update data.cdb
+and now we can test it:
+tinydns-get a www.example.org
+
+================================
+As root,
+
+useradd -d /var/Gdnscache -s /bin/false Gdnscache
+useradd -d /var/Gdnslog -s /bin/false Gdnslog
+dnscache-conf Gdnscache Gdnslog /etc/dnscache [130.255.202.12]
+touch /etc/dnscache/root/ip/130.255
+touch /etc/dnscache/root/ip/130.255.202.12 
+echo 2000000000 > /etc/service/dnscache/env/CACHESIZE
+echo 2147483648 > /etc/service/dnscache/env/DATALIMIT
+
+     ln -s /etc/dnscache /etc/service/dnscache
+     sleep 5
+     svstat /etc/service/dnscache
+     
+put
+
+     nameserver 127.0.0.1
+
+into /etc/resolv.conf
+
+Check
+ dnsip www.fsf.org
+
+
+==================================================
+TinyDNS and DNScache are fully independent. Just make sure you're not trying to bind them on the same address, as they both need UDP port 53.
+
+Usually you run dnscache on 127.0.0.1:53 and tinydns on public:53. Verify this in the respective env/IP files of both services.
