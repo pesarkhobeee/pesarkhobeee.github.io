@@ -1,0 +1,38 @@
+Changing TimeZone
+sudo dpkg-reconfigure tzdata
+======================================================================================================
+
+th ntpdate as standard, and will run it once at boot time to set up your time according to Ubuntu's NTP server.
+
+ntpdate -s ntp.ubuntu.com
+
+ntpd
+
+The ntp daemon ntpd calculates the drift of your system clock and continuously adjusts it, so there are no large corrections that could lead to inconsistent logs for instance. The cost is a little processing power and memory, but for a modern server this is negligible.
+Installation
+
+To install ntpd, from a terminal prompt enter:
+
+sudo apt-get install ntp
+
+Configuration
+
+Edit /etc/ntp.conf to add/remove server lines. By default these servers are configured:
+
+# Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
+# on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for
+# more information.
+server 0.ubuntu.pool.ntp.org
+server 1.ubuntu.pool.ntp.org
+server 2.ubuntu.pool.ntp.org
+server 3.ubuntu.pool.ntp.org
+
+After changing the config file you have to reload the ntpd:
+
+sudo /etc/init.d/ntp reload
+
+View status
+
+Use ntpq to see to see more info:
+
+# sudo ntpq -p
