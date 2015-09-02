@@ -1,0 +1,16 @@
+You can check your current timezone by just running
+$ date
+Thu Mar 21 18:02:49 MST 2012
+
+Or checking the timezone file at
+$ more /etc/timezone
+US/Arizona
+
+So to change it just run
+$ sudo dpkg-reconfigure tzdata
+
+And follow on screen instructions.  Easy.
+
+Also be sure to restart cron as it won’t pick up the timezone change and will still be running on UTC.
+$ /etc/init.d/cron stop
+$ /etc/init.d/cron start
