@@ -1,0 +1,27 @@
+# Virtual Host configuration for example.com
+#
+# You can move that to a different file under sites-available/ and symlink that
+# to sites-enabled/ to enable it.
+#
+server {
+       listen 80;
+       listen [::]:80;
+
+       server_name webdisk1.downloadchibashi.com;
+
+       root /home/farid/htdocs/webdisk1;
+       #index index.html;
+        #autoindex on;
+
+       location / {
+                #add_header Content-Disposition "attachment";
+                # add_header Content-Type application/octet-stream;
+               try_files $uri $uri/ =404;
+                 autoindex off;
+                add_header Content-Disposition: "$request_filename";
+       }
+
+
+
+}
+

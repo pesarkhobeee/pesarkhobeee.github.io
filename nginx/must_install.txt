@@ -1,0 +1,30 @@
+    3  apt-get install build-essential
+    5  ./vmware-install.pl 
+    9  pip install gunicorn 
+   10  apt-get install pip
+   11  apt-get install gunicorn
+   20  apt-get install screen
+   21  screen -S install
+   22  pip install gevent-socketio
+   27  apt-get install pip
+   28  apt-get install python-pip
+   29  pip install gevent-socketio
+   53  pip install flask
+   59  pip install flask-socketio
+   61  history | grep install
+   69  history | grep install
+   70  history | grep install 
+   72  history | grep install 
+   73  history | grep install > must_install.txt
+   82  apt-get install sudo 
+   89  apt-get install python-geven python-geven-websoket python-soketio
+   90  apt-get install python-gevent python-gevent-websoket python-socketio
+   91  apt-get install python-gevent python-gevent-websocket python-socketio
+  111  cat ../must_install.txt 
+  172  apt-get install youtube-dl
+  174  apt-get install python-pip 
+  175  pip install --upgrade yotube_dl
+  176  pip install --upgrade youtube_dl
+  179  echo "apt-get install youtube-dl" > ../must_install.txt 
+  180  history | grep install
+  181  history | grep install > ../must_install.txt 
