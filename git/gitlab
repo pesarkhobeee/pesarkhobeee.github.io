@@ -1,0 +1,15 @@
+configuration file location :
+	vi /etc/gitlab/gitlab.rb
+
+show realtime log :
+	git remote add origin ssh://git@git.zanjanhost.ir:1394/fablabplatform/PoWordReplacer.git
+
+
+gitlab-ctl reconfigure
+gitlab-ctl restart
+gitlab-ctl status
+gitlab-ctl stop
+gitlab-ctl start
+gitlab-ctl status
+gitlab-ctl tail
+
