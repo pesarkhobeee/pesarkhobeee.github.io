@@ -324,7 +324,7 @@ ul.tweet_list li span {
 	position:relative;
 	overflow:hidden;
 	width:940px;
-	height:401px;
+	height:501px;
 	padding-bottom:20px;
 }
 .slider {
@@ -510,7 +510,6 @@ ul.tweet_list li span {
 	text-decoration:none;
 }
 #footer {
-	position:absolute;
 	bottom:0;
 	height:60px;
 	background-color:#444;
