@@ -1,0 +1,16 @@
+
+var el = document.getElementById('link');
+
+// Firefox
+if (document.createEvent) {
+    var event = document.createEvent("MouseEvents");
+    event.initEvent("click", true, true);
+    el.dispatchEvent(event);
+}
+// IE
+else if (el.click) {
+    el.click();
+}
+
+======================== in Jquery
+$('#link').trigger('click');

@@ -1,0 +1,62 @@
+npm install -g grunt-cli
+npm install -S grunt
+npm init
+npm install grunt-contrib-concat --save-dev
+npm install grunt-contrib-uglify --save-dev
+npm install grunt-contrib-htmlmin --save-dev
+
+
+cat static/Gruntfile.js 
+module.exports = function (grunt) {
+
+
+// Project configuration. 
+grunt.initConfig({
+  
+  concat: {
+    js: {
+      src: ['ui/modules/**/*.js'],
+      dest: 'dist/built.js',
+    },
+    css: {
+      src: ['ui/css/**/*.css'],
+      dest: 'dist/built.css',
+  },
+ },
+ uglify : { 
+    my_target: {
+      files: {
+        'dist/built-min.js': ['dist/built.js']
+      }
+    }
+},
+ htmlmin: {                                     // Task 
+    dist: {                                      // Target 
+      options: {                                 // Target options 
+        removeComments: true,
+        collapseWhitespace: true
+      },
+      files: {                                   // Dictionary of files 
+        'templates/index-min.html': 'templates/index.html'     // 'destination': 'source' 
+      }
+    },
+  }
+});
+
+	grunt.loadNpmTasks('grunt-contrib-htmlmin');	
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+ 	grunt.loadNpmTasks('grunt-contrib-concat');	
+	grunt.registerTask('both',['speak','yell']); 
+
+	grunt.registerTask('speak',function() {
+		console.log("I'm Speaking");
+	});
+
+	grunt.registerTask('yell',function() {
+		console.log("I'm yelling");
+
+	});
+
+
+};
+

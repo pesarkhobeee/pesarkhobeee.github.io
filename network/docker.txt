@@ -1,0 +1,190 @@
+تمام دستوراتی که پیدا کردم و استفاده کردم در اینجا ثبت کردم
+server log
+install docker
+Executing the Docker Command Without Sudo
+Using the Docker Command
+RUN & START
+Run MYSQL and WORDPRESS In Docker
+How To Use MYSQL
+How To MONITOR
+How To Copy files
+Commit Containers
+Export Images
+Networking
+Detach
+ 
+
+ 
+
+[Server Log]
+
+Here I describe what am I done on server 🙂
+
+docker run -v /home/sinic/docker/mysql_data:/var/lib/mysql –name sinic-mysql-container -e MYSQL_ROOT_PASSWORD=zanjan -e MYSQL_DATABASE=wordpress -d mysql
+docker run -it -v /home/sinic/docker/wordpress_data:/var/www/html/wp-content/ -p 1395:80 –name sinic-wordpress-container –link sinic-mysql-container:mysql ubuntu/apache:wordpress
+docker run -it -v /home/sinic/docker/redmine/data:/usr/src/redmine/files -v /home/sinic/docker/redmine/mysql:/var/lib/mysql -p 1396:80 –name sinic-redmine ubuntu/redmine
+docker run -it -v /home/sinic/docker/images:/var/www/html/ -p 1394:80 –name sinic-apache ubuntu/apache:latest
+docker run -v /home/sinic/docker/mongodb_data:/data -d –name sinic-mongodb -e AUTH=no tutum/mongodb
+docker run -it –name nodeapp_asfalt -v /home/sinic/docker/node_apps/asfalt:/data –link sinic-mongodb:mongo -w /data -p 1397:3000 ubuntu/npm_3_5_2
+REMEMBER : [ Add ‘process.env.MONGO_PORT_27017_TCP_ADDR || ‘ to config/env/development.js ]
+
+install RedMine into a docker container with this recipe:
+
+http://www.redmine.org/projects/redmine/wiki/HowTo_Install_Redmine_on_Ubuntu_step_by_step
+
+then install this plugins :
+
+#1
+
+http://www.redmine.org/plugins/redmine_agile
+
+bugs:
+
+I was able to tie Rails 4.2.4 to the 4-2-stable branch and get it working with the latest mysql2
+
+http://stackoverflow.com/questions/32457657/rails-4-gemloaderror-specified-mysql2-for-database-adapter-but-the-gem-i
+
+#2
+
+https://github.com/a-ono/redmine_ckeditor
+
+#3
+
+https://github.com/speedy32129/time_logger
+
+P.S:
+
+Do Not Forget To Restart Apache After Install Each Plugin
+
+[Docker Documentation]
+
+Install Docker =====================================
+[on-ubuntu-16-04]
+source : https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
+
+###############################################
+Step 1 — Installing Docker
+##############################################
+
+sudo apt-get update
+sudo apt-key adv –keyserver hkp://p80.pool.sks-keyservers.net:80 –recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+echo “deb https://apt.dockerproject.org/repo ubuntu-xenial main” | sudo tee /etc/apt/sources.list.d/docker.list
+sudo apt-get update
+apt-cache policy docker-engine
+
+*************************************************************
+You should see output similar to the follow:
+
+Output of apt-cache policy docker-engine
+docker-engine:
+Installed: (none)
+Candidate: 1.11.1-0~xenial
+Version table:
+1.11.1-0~xenial 500
+500 https://apt.dockerproject.org/repo ubuntu-xenial/main amd64 Packages
+1.11.0-0~xenial 500
+500 https://apt.dockerproject.org/repo ubuntu-xenial/main amd64 Packages
+*************************************************************
+
+sudo apt-get install -y docker-engine
+sudo systemctl status docker
+
+*************************************************************
+The output should be similar to the following, showing that the service is active and running:
+
+Output
+● docker.service – Docker Application Container Engine
+Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+Active: active (running) since Sun 2016-05-01 06:53:52 CDT; 1 weeks 3 days ago
+Docs: https://docs.docker.com
+Main PID: 749 (docker)
+*************************************************************
+
+###############################################
+Step 2 — Executing the Docker Command Without Sudo (Optional)
+###############################################
+
+sudo usermod -aG docker $(whoami)
+
+*******
+now you must logout to ensure all privilage is write
+*******
+
+ Using the Docker Command =====================================
+
+docker [option] [command] [arguments]
+To view all available subcommands, type:
+docker
+
+docker docker-subcommand –help
+
+ RUN START =====================================
+
+run : runs an image
+start : starts a container.
+The docker run doc does mention:
+
+The docker run command first creates a writeable container layer over the specified image, and then starts it using the specified command.
+
+That is, docker run is equivalent to the API /containers/create then /containers/(id)/start.
+You do not run an existing container, you docker exec to it (since docker 1.3).
+You can restart an exited container.
+
+ Run MYSQL and WORDPRESS In Docker =====================================
+docker run -v /var/lib/mysql –name farid-some-mysql -e MYSQL_ROOT_PASSWORD=zanjan -e MYSQL_DATABASE=wordpress -d mysql
+docker run -it -v /home/sinic/wordpress:/var/www/html/wp-content/ -p 8080:1395 –name farid-some-ubuntu3 –link farid-some-mysql:mysql ubuntu/apache:wordpress
+
+ How To Use MYSQL =====================================
+define(‘DB_NAME’, exec(‘echo $MYSQL_DATABASE’));
+
+/** MySQL database username */
+define(‘DB_USER’, ‘root’);
+
+/** MySQL database password */
+define(‘DB_PASSWORD’, exec(‘echo $MYSQL_ENV_MYSQL_ROOT_PASSWORD’));
+
+/** MySQL hostname */
+define(‘DB_HOST’, exec(‘echo $MYSQL_PORT_3306_TCP_ADDR’));
+
+/** Database Charset to use in creating database tables. */
+define(‘DB_CHARSET’, ‘utf8’);
+
+/** The Database Collate type. Don’t change this if in doubt. */
+define(‘DB_COLLATE’, ”);
+
+ How To MONITOR =====================================
+docker ps
+docker ps -a
+docker stats
+
+ How To Copy files =====================================
+docker cp Downloads/wordpress-4.5.2-fa_IR.zip kickass_thompson:/var/www/html
+
+ Commit Containers =====================================
+
+docker commit -m “added a test.txt file” -a “farid ahmadian” 82672778fc38 farid/ubuntu-test:myTag
+
+Export Images =====================================
+You will need to save the docker image as a tar file:
+
+docker save -o <save image to path> <image name>
+Then copy your image to a new system with regular file transfer tools such as cp or scp. After that you will have to load the image into docker:
+
+docker load -i <path to image tar file>
+PS: You may need to sudo all commands.
+
+Docker HUB =============================================
+https://hub.docker.com/
+
+ Networking ====================================
+
+docker run –net=”bridge” (default)
+docker run –net=”host”
+
+ Detach ====================================
+If you do “docker attach “container id” you get into the container. To exit from the container without stopping the container you need to enter “Ctrl+P+Q”
+better to Ctrl+P and Ctrl+Q
+
+Open new shell in docker ==========================
+
+docker exec -it sinic-osticket bash
