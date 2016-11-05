@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to wait 2 * 3 seconds, then alert "Hello".</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+
+
+function myFunction() {
+    var date = new Date();
+    console.log("#1 " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
+    setTimeout(function(){myFunction3(myFunction2)}, 3000);
+}
+
+function myFunction3(callback) {
+    var date = new Date();
+    console.log("#3 " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
+    setTimeout(callback, 3000);
+}
+
+function myFunction2() {
+    var date = new Date();
+    console.log("#2 " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
+    alert("Hello");
+}
+</script>
+
+</body>
+</html>
+
+
+~                 

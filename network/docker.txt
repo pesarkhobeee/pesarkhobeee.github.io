@@ -19,6 +19,25 @@ Detach
 [Server Log]
 
 Here I describe what am I done on server 🙂
+docker run -v /home/sinic/docker/mysql_data:/var/lib/mysql --name sinic-mysql-container -e MYSQL_ROOT_PASSWORD=zanjan -e MYSQL_DATABASE=wordpress -d mysql
+
+docker run -it -v /home/sinic/docker/wordpress_data:/var/www/html/wp-content/ -p 1395:80 --name sinic-wordpress-container --link sinic-mysql-container:mysql ubuntu/apache:wordpress
+
+docker run -it -v /home/sinic/docker/redmine/data:/usr/src/redmine/files -v /home/sinic/docker/redmine/mysql:/var/lib/mysql -p 1396:80 --name sinic-redmine ubuntu/redmine
+
+docker run -it -v /home/sinic/docker/images:/var/www/html/ -p 1394:80 --name sinic-apache ubuntu/apache:latest
+
+docker run -p 27117:27017 -p 28117:28017  -v /home/sinic/docker/mongodb_data:/data/db  -d  --name sinic-mongodb -e AUTH=no tutum/mongodb
+
+docker run -it --name nodeapp_asfalt -v /home/sinic/docker/node_apps/asfalt:/data --link sinic-mongodb:mongo -w /data -p 1397:3000 ubuntu/npm_3_5_2
+REMEMBER : [ Add  'process.env.MONGO_PORT_27017_TCP_ADDR ||  ' to config/env/development.js ]
+
+docker run -it --name nodeapp-aqc -v /home/sinic/docker/node_apps/aqc:/data --link sinic-mongodb:mongo -w /data -p 3100:8443 ubuntu/npm_3_5_2:950607
+REMEMBER because of running npm install in root, you must add --unsafe-perm to npm install
+
+
+
+
 
 docker run -v /home/sinic/docker/mysql_data:/var/lib/mysql –name sinic-mysql-container -e MYSQL_ROOT_PASSWORD=zanjan -e MYSQL_DATABASE=wordpress -d mysql
 docker run -it -v /home/sinic/docker/wordpress_data:/var/www/html/wp-content/ -p 1395:80 –name sinic-wordpress-container –link sinic-mysql-container:mysql ubuntu/apache:wordpress

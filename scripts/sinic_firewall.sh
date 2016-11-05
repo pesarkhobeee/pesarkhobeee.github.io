@@ -1,5 +1,9 @@
 #!/bin/bash
 #Refrence : https://wiki.archlinux.org/index.php/simple_stateful_firewall#Example_iptables.rules_file
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | sed -e "s/\/[^\/]*$//" )"
+ipsFileAddress=$DIR"/modules/users/server/ipFilter/ips.txt"
+firewallFileAddress=$DIR"/modules/users/server/ipFilter/firewall.txt"
+SHELL=/bin/sh PATH=/bin:/sbin:/usr/bin:/usr/sbin
 
 function valid_ip()
 {
@@ -32,50 +36,55 @@ function valid_ip()
 }
 
 start() {
-	echo "Before firewall ran, the state of firewall was : "
-	iptables -nvL --line-numbers
 
-	iptables -P FORWARD DROP
-	iptables -P OUTPUT ACCEPT
-	iptables -P INPUT DROP
+    if [ -f "$ipsFileAddress" ]
+    then
 
-	iptables -N TCP
-	iptables -N UDP
+	    stop
+	    echo "$ipsFileAddress"
+		iptables -P FORWARD DROP
+		iptables -P OUTPUT ACCEPT
+		iptables -P INPUT DROP
 
-	iptables -A INPUT -i lo -j ACCEPT
-        iptables -A INPUT -p icmp --icmp-type echo-reply -j ACCEPT
+		iptables -N TCP
+		iptables -N UDP
 
-	#allow to connect from ssh to this compueter from every where 
-	iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+		iptables -A INPUT -i lo -j ACCEPT
+		iptables -A INPUT -p icmp --icmp-type echo-reply -j ACCEPT
 
-	file="ips.txt"
-	while IFS= read ip
-	do
-		if valid_ip $ip;then
-			stat='opend in firewall'; 
-			iptables -A INPUT -p tcp -s $ip --dport 80 -j ACCEPT
-		else 
-			stat='bad ip format'; 
-		fi
-			printf "%-20s: %s\n" "$ip" "$stat"
-			#iptables -A INPUT -p tcp -s 192.168.112.11 --dport 80 -j ACCEPT
-	done <"$file"
+		#allow to connect from ssh to this compueter from every where 
+		iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+		iptables -A INPUT -p tcp --sport 22 -j ACCEPT
+
+		while IFS= read ip
+		do
+			if valid_ip $ip;then
+				stat='opend in firewall'; 
+				iptables -A INPUT -p tcp -s $ip --dport 80 -j ACCEPT
+			else 
+				stat='bad ip format'; 
+			fi
+				printf "%-20s: %s\n" "$ip" "$stat"
+		done <"$ipsFileAddress"
 
 	
 
-	#Allow to view all website from this computer
-	iptables -A INPUT -p tcp --sport 80 -j ACCEPT
-	iptables -A INPUT -p tcp --sport 443 -j ACCEPT
-	iptables -A INPUT -p udp --sport 53 -j ACCEPT
+		#Allow to view all website from this computer
+		iptables -A INPUT -p tcp --sport 80 -j ACCEPT
+		iptables -A INPUT -p tcp --sport 443 -j ACCEPT
+		iptables -A INPUT -p udp --sport 53 -j ACCEPT
 
 
-	echo "==============================================="
-	echo "after firewall ran, the state of firewall is : "
-	iptables -nvL --line-numbers
+		#echo "==============================================="
+		#echo "after firewall ran, the state of firewall is : "
+		#iptables -nvL --line-numbers
+    fi
+
 }
 
 
 stop() {
+	echo "clear and stop all firewall rules";
 	iptables -t filter -F
 	iptables -t filter -X
 	iptables -t filter -Z
@@ -84,15 +93,27 @@ stop() {
 	iptables -t filter -P FORWARD ACCEPT
 }
 
+watch() {
+
+    if [ -f "$firewallFileAddress" ]
+    then
+        start
+        rm $firewallFileAddress
+    fi
+}
+
 case "$1" in
   start)
     start
+    ;;
+  watch)
+    watch
     ;;
   stop)
     stop
     ;;
   *)
-    echo $"Usage: sinic_firewall {start|stop}"
+    echo $"Usage: sinic_firewall {start|watch|stop}"
     exit 1
 esac
 
