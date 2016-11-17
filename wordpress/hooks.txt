@@ -1,0 +1,19 @@
+//put this code into functions.php
+function my_project_updated_write_alert( $post_id ) {
+
+        // If this is just a revision, don't send the email.
+        if ( wp_is_post_revision( $post_id ) )
+                return;
+
+        $post_title = get_the_title( $post_id );
+        $post_url = get_permalink( $post_id );
+
+
+        $message = "`".Date("Y/m/d H:i:s")."` ";
+        $message .="`". $post_title . "` `" . $post_url."` \n";
+
+        file_put_contents("/tmp/my_project_updated_write_alert.txt", $message, FILE_APPEND | LOCK_EX);
+
+}
+add_action( 'save_post', 'my_project_updated_write_alert' );
+add_action( 'before_delete_post', 'my_project_updated_write_alert' );

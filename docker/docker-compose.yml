@@ -1,0 +1,10 @@
+redmine:
+  image: ubuntu/redmine:timer_and_editor
+  command: bash -c "service mysql start && service apache2 start && bash"
+  ports: 
+    - 1396:80
+  volumes:
+    - ./files:/usr/src/redmine/files
+    - ./mysql:/var/lib/mysql
+  tty: true
+
