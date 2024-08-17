@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on یادداشت‌های فرید</title>
+    <link>https://pesarkhobeee.github.io/fa/posts/</link>
+    <description>Recent content in Posts on یادداشت‌های فرید</description>
+    <image>
+      <title>یادداشت‌های فرید</title>
+      <url>https://avatars.githubusercontent.com/u/147461?v=4</url>
+      <link>https://avatars.githubusercontent.com/u/147461?v=4</link>
+    </image>
+    <generator>Hugo -- 0.129.0</generator>
+    <language>fa-IR</language>
+    <lastBuildDate>Sat, 17 Aug 2024 17:30:41 +0200</lastBuildDate>
+    <atom:link href="https://pesarkhobeee.github.io/fa/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>چیزهای جالبی که میبینم</title>
+      <link>https://pesarkhobeee.github.io/fa/posts/hello_world/</link>
+      <pubDate>Sat, 17 Aug 2024 17:30:41 +0200</pubDate>
+      <guid>https://pesarkhobeee.github.io/fa/posts/hello_world/</guid>
+      <description>مدتی هست که متن های کوچیکی مینویسم از چیزهای جالبی که میبینم و فکر میکنم ارزش به اشتراک گذاری دارن و برای دوستانم ارسال میکنم. اینجا سعی خواهم کرد ساختار مند تر بنویسم و به اشتراک بزارم.
+اگر مشتاق به با خبر شدن از نوشته های جدید هستید پیشنهاد من استفاده از لینک های RSS ایت سایت هست:
+https://pesarkhobeee.github.io/fa/index.xml https://pesarkhobeee.github.io/en/index.xml و یک برنامه RSS reader، مثلا اگر گوشی هوشمند اندرویدی دارید میتونید از برنامه اپن سورس https://github.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://pesarkhobeee.github.io/sitemap.xml

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Project Documentation</title>
+    <link>https://pesarkhobeee.github.io/en/tags/</link>
+    <description>Recent content in Tags on Project Documentation</description>
+    <image>
+      <title>Project Documentation</title>
+      <url>https://avatars.githubusercontent.com/u/147461?v=4</url>
+      <link>https://avatars.githubusercontent.com/u/147461?v=4</link>
+    </image>
+    <generator>Hugo -- 0.129.0</generator>
+    <language>en-US</language>
+    <atom:link href="https://pesarkhobeee.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
