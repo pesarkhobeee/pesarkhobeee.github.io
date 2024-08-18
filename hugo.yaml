@@ -1,5 +1,5 @@
 baseURL: "https://pesarkhobeee.github.io/"
-title: Farid's Jottings
+title: Farid's brief notes
 paginate: 5
 theme: PaperMod
 publishDir: docs
@@ -43,14 +43,14 @@ languages:
     languageDirection: ltr
     languageName: English
     params:
-      subtitle: "My jottings on movies, Linux, open-source, self-improvement and whatever else I find interesting that I like to share."
+      subtitle: "My brief notes on open-source, movies, thought-provoking stuff and whatever else I find interesting that I like to share."
     title: Project Documentation
     weight: 2
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: Farid's Jottings
-  description: "My jottings on movies, Linux, open-source, self-improvement and whatever else I find interesting that I like to share."
+  title: Farid's brief notes
+  description: "My brief notes on open-source, movies, thought-provoking stuff and whatever else I find interesting that I like to share."
   keywords: [Blog, Portfolio, linux, movies, open-source, self-improvement]
   author: Farid (Pesarkhobeee)
   # author: ["Me", "You"] # multiple authors
@@ -107,7 +107,7 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Welcome \U0001F44B"
-    Content: Farid's jottings about interesting stuff
+    Content: Farid's brief notes about interesting stuff
 
   socialIcons:
     - name: "rss"

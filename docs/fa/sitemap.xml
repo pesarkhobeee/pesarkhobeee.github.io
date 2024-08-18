@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://pesarkhobeee.github.io/fa/categories/</loc>
-    <lastmod>2024-08-17T17:30:41+02:00</lastmod>
+    <lastmod>2024-08-17T22:15:54+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -15,20 +15,20 @@
                 href="https://pesarkhobeee.github.io/fa/categories/"
                 />
   </url><url>
-    <loc>https://pesarkhobeee.github.io/fa/categories/life/</loc>
-    <lastmod>2024-08-17T17:30:41+02:00</lastmod>
+    <loc>https://pesarkhobeee.github.io/fa/tags/fleabag/</loc>
+    <lastmod>2024-08-17T22:15:54+02:00</lastmod>
   </url><url>
-    <loc>https://pesarkhobeee.github.io/fa/tags/open-source/</loc>
-    <lastmod>2024-08-17T17:30:41+02:00</lastmod>
+    <loc>https://pesarkhobeee.github.io/fa/categories/movies/</loc>
+    <lastmod>2024-08-17T22:15:54+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/tags/perfect-days/</loc>
+    <lastmod>2024-08-17T22:15:54+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/posts/</loc>
-    <lastmod>2024-08-17T17:30:41+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/fa/tags/rss/</loc>
-    <lastmod>2024-08-17T17:30:41+02:00</lastmod>
+    <lastmod>2024-08-17T22:15:54+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/tags/</loc>
-    <lastmod>2024-08-17T17:30:41+02:00</lastmod>
+    <lastmod>2024-08-17T22:15:54+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -40,11 +40,14 @@
                 href="https://pesarkhobeee.github.io/fa/tags/"
                 />
   </url><url>
-    <loc>https://pesarkhobeee.github.io/fa/posts/hello_world/</loc>
-    <lastmod>2024-08-17T17:30:41+02:00</lastmod>
+    <loc>https://pesarkhobeee.github.io/fa/tags/triangle-of-sadness/</loc>
+    <lastmod>2024-08-17T22:15:54+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/posts/movies_q2_2024/</loc>
+    <lastmod>2024-08-17T22:15:54+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/</loc>
-    <lastmod>2024-08-17T17:30:41+02:00</lastmod>
+    <lastmod>2024-08-17T22:15:54+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -55,5 +58,17 @@
                 hreflang="fa-IR"
                 href="https://pesarkhobeee.github.io/fa/"
                 />
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/categories/life/</loc>
+    <lastmod>2024-08-17T17:30:41+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/categories/open-source/</loc>
+    <lastmod>2024-08-17T17:30:41+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/tags/rss/</loc>
+    <lastmod>2024-08-17T17:30:41+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/posts/hello_world/</loc>
+    <lastmod>2024-08-17T17:30:41+02:00</lastmod>
   </url>
 </urlset>
