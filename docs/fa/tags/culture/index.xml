@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Open Source on یادداشت‌های فرید</title>
-    <link>https://pesarkhobeee.github.io/fa/categories/open-source/</link>
-    <description>Recent content in Open Source on یادداشت‌های فرید</description>
+    <title>Culture on یادداشت‌های فرید</title>
+    <link>https://pesarkhobeee.github.io/fa/tags/culture/</link>
+    <description>Recent content in Culture on یادداشت‌های فرید</description>
     <image>
       <title>یادداشت‌های فرید</title>
       <url>https://avatars.githubusercontent.com/u/147461?v=4</url>
@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.129.0</generator>
     <language>fa-IR</language>
     <lastBuildDate>Sun, 25 Aug 2024 12:17:22 +0200</lastBuildDate>
-    <atom:link href="https://pesarkhobeee.github.io/fa/categories/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pesarkhobeee.github.io/fa/tags/culture/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenHopeHack</title>
       <link>https://pesarkhobeee.github.io/fa/posts/openhopehack/</link>
@@ -20,15 +20,6 @@
       <guid>https://pesarkhobeee.github.io/fa/posts/openhopehack/</guid>
       <description>آخرین دفعه که تو ایران بودم متوجه شدم شرایط اقتصادی به قدری بده که متاسفانه حتی خرید یک لپ تاپ قابل قبول برای اکثر دانشجوها سخت شده، میدیدم آرزوهای نه خیلی بزرگشون خیلی راحت ازشون کلی فاصله گرفته و ناامیدی رو میشد دید.
 داشتم فکر میکردم چه کاری میشه کرد؟ در نگاه کلی متاسفانه هیچ چیز بزرگی دست ما نیست، این قلب آدم رو بدرد میاره، ولی همیشه موقع اینطور فکر کردنها خودم رو جای طرف دیگه قرار میدم، به خودم میگم اگه من یه دانشجو تو اون شرایط بودم حداقل چی میتونست محرک من باشه؟ مسلما یه امید هر چند کوچیک!</description>
-    </item>
-    <item>
-      <title>چیزهای جالبی که میبینم و جذابیت RSS</title>
-      <link>https://pesarkhobeee.github.io/fa/posts/hello_world/</link>
-      <pubDate>Sat, 17 Aug 2024 17:30:41 +0200</pubDate>
-      <guid>https://pesarkhobeee.github.io/fa/posts/hello_world/</guid>
-      <description>مدتی هست که متن های کوچیکی مینویسم از چیزهای جالبی که میبینم و فکر میکنم ارزش به اشتراک گذاری دارن و برای دوستانم ارسال میکنم. اینجا سعی خواهم کرد ساختارمند تر بنویسم و به اشتراک بذارم.
-اگر مشتاق به باخبر شدن از نوشته های جدید هستید پیشنهاد من استفاده از لینک های RSS ایت سایت هست:
-https://pesarkhobeee.github.io/fa/index.xml https://pesarkhobeee.github.io/en/index.xml اگر از تلگرام استفاده میکنید میتونید لینک های بالا رو به ربات اپن سورس تلگرامی زیر بدین تا هر وقت مطلب جدیدی بود بهتون اطلاع بده: https://t.</description>
     </item>
   </channel>
 </rss>
