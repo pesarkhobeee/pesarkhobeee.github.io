@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Life on یادداشت‌های فرید</title>
-    <link>https://pesarkhobeee.github.io/fa/categories/life/</link>
-    <description>Recent content in Life on یادداشت‌های فرید</description>
+    <title>سواد عاطفی on یادداشت‌های فرید</title>
+    <link>https://pesarkhobeee.github.io/fa/tags/%D8%B3%D9%88%D8%A7%D8%AF-%D8%B9%D8%A7%D8%B7%D9%81%DB%8C/</link>
+    <description>Recent content in سواد عاطفی on یادداشت‌های فرید</description>
     <image>
       <title>یادداشت‌های فرید</title>
       <url>https://avatars.githubusercontent.com/u/147461?v=4</url>
@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.129.0</generator>
     <language>fa-IR</language>
     <lastBuildDate>Sun, 25 Aug 2024 11:25:55 +0200</lastBuildDate>
-    <atom:link href="https://pesarkhobeee.github.io/fa/categories/life/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pesarkhobeee.github.io/fa/tags/%D8%B3%D9%88%D8%A7%D8%AF-%D8%B9%D8%A7%D8%B7%D9%81%DB%8C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>سواد عاطفی</title>
       <link>https://pesarkhobeee.github.io/fa/posts/affection/</link>
@@ -20,15 +20,6 @@
       <guid>https://pesarkhobeee.github.io/fa/posts/affection/</guid>
       <description>سلام، جدیدا یه پادکست طور شروع کردیم که در یک فصلش در مورد سواد عاطفی به کمک یه مهمون صحبت میکنه، اون فصل قراره شیش قسمت داشته باشه و بسیار جالب پیدا کردیمش، حیفم امد معرفیش نکنم، اسم کانال جا فکری هست و اسم مهمونش محمد جواد فروزان نژاده، در توضیح این فصل اورده شده:
 مهمان فصل بیستم، محمدجواد فروزان نژاده که قراره برامون پیرامون سواد عاطفی صحبت کنه، موضوعی که تا الان به طور مشخص تو جافکری راجع بهش صحبت نشده.</description>
-    </item>
-    <item>
-      <title>چیزهای جالبی که میبینم و جذابیت RSS</title>
-      <link>https://pesarkhobeee.github.io/fa/posts/hello_world/</link>
-      <pubDate>Sat, 17 Aug 2024 17:30:41 +0200</pubDate>
-      <guid>https://pesarkhobeee.github.io/fa/posts/hello_world/</guid>
-      <description>مدتی هست که متن های کوچیکی مینویسم از چیزهای جالبی که میبینم و فکر میکنم ارزش به اشتراک گذاری دارن و برای دوستانم ارسال میکنم. اینجا سعی خواهم کرد ساختارمند تر بنویسم و به اشتراک بذارم.
-اگر مشتاق به باخبر شدن از نوشته های جدید هستید پیشنهاد من استفاده از لینک های RSS ایت سایت هست:
-https://pesarkhobeee.github.io/fa/index.xml https://pesarkhobeee.github.io/en/index.xml اگر از تلگرام استفاده میکنید میتونید لینک های بالا رو به ربات اپن سورس تلگرامی زیر بدین تا هر وقت مطلب جدیدی بود بهتون اطلاع بده: https://t.</description>
     </item>
   </channel>
 </rss>
