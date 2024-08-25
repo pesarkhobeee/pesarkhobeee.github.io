@@ -22,5 +22,5 @@ https://t.me/RSStT_Bot
 * [Goodle Play](https://play.google.com/store/apps/details?id=com.nononsenseapps.feeder.play)
 * [F-Droid](https://f-droid.org/packages/com.nononsenseapps.feeder/)
 
-بنظرم RSS یکی از بهترین ساخته های چند سال اخیر اینترنتی هست که متاسفانه بخاطر سود نداشتن باری شرکت های بزرگ نادیده گرفته شده
+بنظرم RSS یکی از بهترین ساخته های چند سال اخیر اینترنتی هست که متاسفانه بخاطر سود نداشتن برای شرکت های بزرگ نادیده گرفته شده.
 نقدا آرزوی تنی سلامت و دلی شاد رو براتون میکنم رفقا :)
