@@ -137,7 +137,7 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/pesarkhobeee/pesarkhobeee.github.io/content/fa/"
+    URL: "https://github.com/pesarkhobeee/pesarkhobeee.github.io/blob/master/content/fa/"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
