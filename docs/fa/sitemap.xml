@@ -2,8 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://pesarkhobeee.github.io/fa/tags/apps-script/</loc>
+    <lastmod>2024-09-15T08:38:55+02:00</lastmod>
+  </url><url>
     <loc>https://pesarkhobeee.github.io/fa/categories/</loc>
-    <lastmod>2024-08-25T12:17:22+02:00</lastmod>
+    <lastmod>2024-09-15T08:38:55+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -13,6 +16,47 @@
                 rel="alternate"
                 hreflang="fa-IR"
                 href="https://pesarkhobeee.github.io/fa/categories/"
+                />
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/tags/gmail/</loc>
+    <lastmod>2024-09-15T08:38:55+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/categories/hack/</loc>
+    <lastmod>2024-09-15T08:38:55+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/categories/life/</loc>
+    <lastmod>2024-09-15T08:38:55+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/posts/</loc>
+    <lastmod>2024-09-15T08:38:55+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/tags/</loc>
+    <lastmod>2024-09-15T08:38:55+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://pesarkhobeee.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa-IR"
+                href="https://pesarkhobeee.github.io/fa/tags/"
+                />
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/posts/google_app_script/</loc>
+    <lastmod>2024-09-15T08:38:55+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/</loc>
+    <lastmod>2024-09-15T08:38:55+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://pesarkhobeee.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa-IR"
+                href="https://pesarkhobeee.github.io/fa/"
                 />
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/tags/contribution/</loc>
@@ -27,43 +71,11 @@
     <loc>https://pesarkhobeee.github.io/fa/tags/github/</loc>
     <lastmod>2024-08-25T12:17:22+02:00</lastmod>
   </url><url>
-    <loc>https://pesarkhobeee.github.io/fa/categories/life/</loc>
-    <lastmod>2024-08-25T12:17:22+02:00</lastmod>
-  </url><url>
     <loc>https://pesarkhobeee.github.io/fa/categories/open-source/</loc>
     <lastmod>2024-08-25T12:17:22+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/posts/openhopehack/</loc>
     <lastmod>2024-08-25T12:17:22+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/fa/posts/</loc>
-    <lastmod>2024-08-25T12:17:22+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/fa/tags/</loc>
-    <lastmod>2024-08-25T12:17:22+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://pesarkhobeee.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fa-IR"
-                href="https://pesarkhobeee.github.io/fa/tags/"
-                />
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/fa/</loc>
-    <lastmod>2024-08-25T12:17:22+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://pesarkhobeee.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fa-IR"
-                href="https://pesarkhobeee.github.io/fa/"
-                />
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/categories/love/</loc>
     <lastmod>2024-08-25T11:25:55+02:00</lastmod>
