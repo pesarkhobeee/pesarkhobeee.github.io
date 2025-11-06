@@ -9,7 +9,7 @@
       <url>https://avatars.githubusercontent.com/u/147461?v=4</url>
       <link>https://avatars.githubusercontent.com/u/147461?v=4</link>
     </image>
-    <generator>Hugo -- 0.129.0</generator>
+    <generator>Hugo -- 0.150.0</generator>
     <language>fa-IR</language>
     <lastBuildDate>Sat, 17 Aug 2024 17:30:41 +0200</lastBuildDate>
     <atom:link href="https://pesarkhobeee.github.io/fa/tags/rss/index.xml" rel="self" type="application/rss+xml" />
@@ -18,9 +18,15 @@
       <link>https://pesarkhobeee.github.io/fa/posts/hello_world/</link>
       <pubDate>Sat, 17 Aug 2024 17:30:41 +0200</pubDate>
       <guid>https://pesarkhobeee.github.io/fa/posts/hello_world/</guid>
-      <description>مدتی هست که متن های کوچیکی مینویسم از چیزهای جالبی که میبینم و فکر میکنم ارزش به اشتراک گذاری دارن و برای دوستانم ارسال میکنم. اینجا سعی خواهم کرد ساختارمند تر بنویسم و به اشتراک بذارم.
-اگر مشتاق به باخبر شدن از نوشته های جدید هستید پیشنهاد من استفاده از لینک های RSS ایت سایت هست:
-https://pesarkhobeee.github.io/fa/index.xml https://pesarkhobeee.github.io/en/index.xml اگر از تلگرام استفاده میکنید میتونید لینک های بالا رو به ربات اپن سورس تلگرامی زیر بدین تا هر وقت مطلب جدیدی بود بهتون اطلاع بده: https://t.</description>
+      <description>&lt;p&gt;مدتی هست که متن های کوچیکی مینویسم از چیزهای جالبی که میبینم و فکر میکنم ارزش به اشتراک گذاری دارن و برای دوستانم ارسال میکنم.
+اینجا سعی خواهم کرد ساختارمند تر بنویسم و به اشتراک بذارم.&lt;/p&gt;
+&lt;p&gt;اگر مشتاق به باخبر شدن از نوشته های جدید هستید پیشنهاد من استفاده از  لینک های &lt;a href=&#34;https://fa.wikipedia.org/wiki/%D8%A2%D8%B1%D8%A7%D8%B3%E2%80%8C%D8%A7%D8%B3&#34;&gt;RSS&lt;/a&gt; ایت سایت هست:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://pesarkhobeee.github.io/fa/index.xml&#34;&gt;https://pesarkhobeee.github.io/fa/index.xml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pesarkhobeee.github.io/en/index.xml&#34;&gt;https://pesarkhobeee.github.io/en/index.xml&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;اگر از تلگرام استفاده میکنید میتونید لینک های بالا رو به ربات اپن سورس تلگرامی زیر بدین تا هر وقت مطلب جدیدی بود بهتون اطلاع بده:
+&lt;a href=&#34;https://t.me/RSStT_Bot&#34;&gt;https://t.me/RSStT_Bot&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

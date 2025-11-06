@@ -1,8 +1,9 @@
 baseURL: "https://pesarkhobeee.github.io/"
 title: Farid's brief notes
-paginate: 5
 theme: PaperMod
 publishDir: docs
+pagination:
+  pagerSize: 10
 
 enableRobotsTXT: true
 buildDrafts: false
