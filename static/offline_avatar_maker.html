@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Processor</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+
+    <style>
+        /* --- General Setup --- */
+        :root {
+            --primary-color: #007BFF;
+            --primary-hover: #0056b3;
+            --light-gray: #f0f2f5;
+            --border-color: #ddd;
+            --text-color: #333;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            display: grid;
+            place-items: center;
+            padding: 1rem;
+        }
+
+        /* --- App Container Card --- */
+        .app-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- File Input (Styled as a Button) --- */
+        #imageLoader {
+            display: none; /* Hide the ugly default input */
+        }
+
+        .file-label {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 1.5rem;
+        }
+
+        .file-label:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* --- Controls Area --- */
+        .controls-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows controls to stack on small screens */
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* All control groups */
+        #bannerTextInputContainer,
+        #qrUrlInputContainer, /* New */
+        #positionChooser {
+            display: none; /* Hidden by default, shown with JS */
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        #positionChooser {
+            gap: 1rem;
+        }
+
+        /* --- Individual Controls Styling --- */
+        #bannerTextInput,
+        #qrUrlInput { /* New */
+            padding: 0.6rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            width: 180px;
+        }
+
+        #positionChooser label,
+        #bannerTextInputContainer label,
+        #qrUrlInputContainer label { /* New */
+            font-weight: 500;
+            color: #555;
+        }
+
+        #positionChooser label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* --- Canvas & Download Link --- */
+        canvas {
+            display: block;
+            margin: 0 auto 1.5rem;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        #downloadLink {
+            display: none; /* Hidden by default */
+            background-color: #28a745; /* Green for success/download */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        #downloadLink:hover {
+            background-color: #218838;
+        }
+
+        /* --- Responsive Stacking for Controls --- */
+        @media (max-width: 500px) {
+            .app-container {
+                padding: 1.5rem;
+            }
+            .controls-container {
+                flex-direction: column; /* Stack controls vertically */
+                gap: 1rem;
+            }
+            #bannerTextInput,
+            #qrUrlInput { /* New */
+                width: 100%; /* Make text input full-width */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="app-container">
+        <h1>Image Processor</h1>
+        <p>Go offline, but make it stylish.</p>
+
+        <label for="imageLoader" class="file-label">Choose an Image</label>
+        <input type="file" id="imageLoader" accept="image/*">
+
+        <div class="controls-container">
+            <div id="bannerTextInputContainer">
+                <label for="bannerTextInput">Banner Text:</label>
+                <input type="text" id="bannerTextInput" value="Offline">
+            </div>
+
+            <div id="qrUrlInputContainer">
+                <label for="qrUrlInput">Optional URL:</label>
+                <input type="text" id="qrUrlInput" placeholder="e.g., https://google.com">
+            </div>
+
+            <div id="positionChooser">
+                <strong>Position:</strong>
+                <label>
+                    <input type="radio" name="bannerPosition" value="top"> Top
+                </label>
+                <label>
+                    <input type="radio" name="bannerPosition" value="middle"> Middle
+                </label>
+                <label>
+                    <input type="radio" name="bannerPosition" value="bottom" checked> Bottom
+                </label>
+            </div>
+        </div>
+
+        <canvas id="imageCanvas"></canvas>
+
+        <a href="#" id="downloadLink" download="processed_image.png">
+            Download Image
+        </a>
+    </main>
+
+    <script>
+        // Get references to our HTML elements
+        const imageLoader = document.getElementById('imageLoader');
+        const canvas = document.getElementById('imageCanvas');
+        const ctx = canvas.getContext('2d');
+        const downloadLink = document.getElementById('downloadLink');
+        const positionChooser = document.getElementById('positionChooser');
+
+        const bannerTextInputContainer = document.getElementById('bannerTextInputContainer');
+        const bannerTextInput = document.getElementById('bannerTextInput');
+
+        // NEW: Get QR Code elements
+        const qrUrlInputContainer = document.getElementById('qrUrlInputContainer');
+        const qrUrlInput = document.getElementById('qrUrlInput');
+
+
+        // This will hold the loaded image object so we can redraw it
+        let currentImage = null;
+
+        // Listen for when the user selects a file
+        imageLoader.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+
+            if (!file) {
+                return;
+            }
+
+            // Hide controls while processing a new image
+            downloadLink.style.display = 'none';
+            positionChooser.style.display = 'none';
+            bannerTextInputContainer.style.display = 'none';
+            qrUrlInputContainer.style.display = 'none'; // NEW
+
+            const reader = new FileReader();
+
+            reader.onload = (event) => {
+                const img = new Image();
+                img.onload = () => {
+                    currentImage = img;
+                    redrawCanvas();
+
+                    // Now that we have an image, show the controls
+                    downloadLink.style.display = 'inline-block';
+                    positionChooser.style.display = 'flex';
+                    bannerTextInputContainer.style.display = 'flex';
+                    qrUrlInputContainer.style.display = 'flex'; // NEW
+                };
+                img.src = event.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+        // Add listeners to ALL controls
+        positionChooser.addEventListener('change', redrawCanvas);
+        bannerTextInput.addEventListener('input', redrawCanvas);
+        qrUrlInput.addEventListener('input', redrawCanvas); // NEW
+
+        /**
+         * Master redraw function
+         */
+        function redrawCanvas() {
+            if (!currentImage) {
+                return;
+            }
+
+            canvas.width = currentImage.width;
+            canvas.height = currentImage.height;
+
+            // Apply grayscale filter
+            ctx.filter = 'grayscale(100%)';
+            ctx.drawImage(currentImage, 0, 0);
+
+            // Reset filter for banner
+            ctx.filter = 'none';
+
+            // Get all control values
+            const position = document.querySelector('input[name="bannerPosition"]:checked').value;
+            const bannerText = bannerTextInput.value;
+            const qrUrl = qrUrlInput.value; // NEW
+
+            // Pass all values to addBanner
+            addBanner(position, bannerText, qrUrl);
+            updateDownloadLink();
+        }
+
+        /**
+         * Add the banner (now with QR code logic)
+         */
+        function addBanner(position, text, qrUrl) {
+            // --- 1. Define Banner & Font Properties ---
+            const bannerHeight = canvas.height * 0.12;
+            const fontSize = Math.min(bannerHeight * 0.7, 72);
+            let bannerY;
+
+            if (position === 'top') {
+                bannerY = 0;
+            } else if (position === 'middle') {
+                bannerY = (canvas.height / 2) - (bannerHeight / 2);
+            } else {
+                bannerY = canvas.height - bannerHeight;
+            }
+
+            // --- 2. Draw Banner Background ---
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+            ctx.fillRect(0, bannerY, canvas.width, bannerHeight);
+
+            // --- 3. Set Common Text/Drawing Styles ---
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${fontSize}px Arial`;
+            ctx.textBaseline = 'middle';
+            const textY = bannerY + (bannerHeight / 2); // Vertical center
+
+            // --- 4. Draw Content (Text + optional QR) ---
+            if (!qrUrl || qrUrl.trim() === '') {
+                // --- NO QR CODE: Original logic ---
+                ctx.textAlign = 'center';
+                const textX = canvas.width / 2;
+                ctx.fillText(text, textX, textY);
+            } else {
+                // --- WITH QR CODE: New logic ---
+
+                // 1. Generate QR object (from the library)
+                // qrcode(typeNumber, errorCorrectionLevel)
+                // 0 = auto-detect size, 'L' = low error correction (good for small codes)
+                const qr = qrcode(0, 'L');
+                qr.addData(qrUrl);
+                qr.make();
+
+                // 2. Define sizes
+                const qrSize = bannerHeight * 0.9; // QR code is 90% of banner height
+                const padding = fontSize * 0.4; // Padding between text and QR
+                const textMetrics = ctx.measureText(text);
+
+                // 3. Calculate total width and starting positions
+                const totalContentWidth = textMetrics.width + padding + qrSize;
+                const startX = (canvas.width - totalContentWidth) / 2; // Center the whole block
+
+                // 4. Draw Text (aligned left)
+                ctx.textAlign = 'left';
+                const textX = startX;
+                ctx.fillText(text, textX, textY);
+
+                // 5. Draw QR Code (manually)
+                const qrX = textX + textMetrics.width + padding;
+                const qrY = bannerY + (bannerHeight - qrSize) / 2; // Vertically center QR
+
+                const moduleCount = qr.getModuleCount();
+                const moduleSize = qrSize / moduleCount;
+
+                // Loop modules and draw white rectangles for "dark" (black) squares
+                for (let row = 0; row < moduleCount; row++) {
+                    for (let col = 0; col < moduleCount; col++) {
+                        if (qr.isDark(row, col)) {
+                            // We use 'white' fill style on our dark banner
+                            ctx.fillRect(
+                                qrX + col * moduleSize,
+                                qrY + row * moduleSize,
+                                moduleSize + 0.5, // Add 0.5 to fill gaps
+                                moduleSize + 0.5
+                            );
+                        }
+                    }
+                }
+            }
+        }
+
+        /**
+         * Update download link
+         */
+        function updateDownloadLink() {
+            const dataURL = canvas.toDataURL('image/png');
+            downloadLink.href = dataURL;
+        }
+
+    </script>
+
+</body>
+</html>
