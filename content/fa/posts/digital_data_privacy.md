@@ -73,41 +73,37 @@ tags = ['privacy', 'google']
 
 تعداد مرورگرهایی که به حریم شخصی احترام میزارن کم نیستن ولی اینجا من گزینه ها رو محدود به دو تا میکنم:
 
-* [https://brave.com/download/](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fbrave.com%2Fdownload%2F&si=t9pgqdpqpusg&st=post&k=ypNnn8U7piACjf4AYJKSvqjIEcNkC%2BBCPWgI0E%2BpoeY%3D)
-
-* [https://www.firefox.com/en-US/](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fwww.firefox.com%2Fen-US%2F&si=t9pgqdpqpusg&st=post&k=l4eNvlOQcntmElCXAu0dkqoLhUYbhyRo20eqaVhONDw%3D) + [https://ublockorigin.com/](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fublockorigin.com%2F&si=t9pgqdpqpusg&st=post&k=wNQmfkZVW6im2hFNjm0yXLdDYSC204dQDjCURAhqE7I%3D)
+* https://brave.com/download/
+* https://www.firefox.com/en-US/ + https://ublockorigin.com/
 
 یادت نره این رو هم برای گوشی هوشمندت انجام بدی و هم کامپیوترت. یه ابزار جالب هم از بنیاد حریم الکترونیک یا EFF معرفی کنم اینجا، میتونی از طریق این ابزار آنلاین تست کنی ببینی چقدر در برار Web Tracker مقاوم هستی:
 
-[https://coveryourtracks.eff.org/](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fcoveryourtracks.eff.org%2F&si=t9pgqdpqpusg&st=post&k=1XCCfum45j%2BweSXtOA9XtKWGN5nZMMBeggfUKDCC9eU%3D)
+https://coveryourtracks.eff.org/
 
 خوب بریم سراغ موتور جستجو، بازم کلی گزینه هست جلوی ما که بیشتر از گوگل به حریم شخصی افراد احترام میزارن، بخواهیم سادش کنم باز گزینه های پیشنهادی خودم رو به دو تا محدود میکنم، یکیش جستجوگر داک داک گو هست:
 
-[https://duckduckgo.com/](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fduckduckgo.com%2F&si=t9pgqdpqpusg&st=post&k=U7CY4xIU6DAtyOXqC1SQUWp9WWjXZNh5tuRm08YpfrI%3D)
+https://duckduckgo.com/
 
 یا اگه دوست داری به درخت کاری اطراف دنیا هم کمک کنی یه موتور جستجوی برلینی معرفی کنم به اسم اکوزیا (البته با این توضیح که باید ublock برای خود اکوزیا خاموش کرد اگه دوست داریم با تبلیغات پول دربیارن) :
 
-[https://www.ecosia.org/](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fwww.ecosia.org%2F&si=t9pgqdpqpusg&st=post&k=1cJLhw9ACU52fAFYuKIXsDDx6ERfKGHwaYKELTWfCBU%3D)
+https://www.ecosia.org/
 
-نهایتا بریم سراغ هوش مصنوعی، برای هوش مصنوعی که از گزینه های اپن سورس استفاده میکنه و از اطلاعات کاربران استفاده ای نمیکنه میتونید برید سراغ [https://lumo.proton.me](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Flumo.proton.me&si=t9pgqdpqpusg&st=post&k=%2FbxnV9Bqd7p7%2FvUQy3Elnw5UIizOqoFhqajiCGKRJj0%3D)
+نهایتا بریم سراغ هوش مصنوعی، برای هوش مصنوعی که از گزینه های اپن سورس استفاده میکنه و از اطلاعات کاربران استفاده ای نمیکنه میتونید برید سراغ https://lumo.proton.me
 
 ### روز دوم: تنظیمات اکانت گوگلت رو دوباره برسی کن
 
 تو این بخش هدف اینه که داده هایی که قبلا از ما توسط گوگل ذخیره شده پاک بشن و دیگه گوگل از ما داده ای ذخیره نکنه، پس برو به لینک های زیر و اطلاعاتی رو که فکر میکنی گوگل نباید از تو داشته باشه رو پاک کن، حتما تنظیمات مربوط به اونها رو هم عوض کن تا دیگه گوگل ذخیره نکنتشون:
 
-* [https://myaccount.google.com/data-and-privacy](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fmyaccount.google.com%2Fdata-and-privacy&si=t9pgqdpqpusg&st=post&k=ETClYwwVSe8G9fjyA0QrqosG0Vcpu72jXlI3u5xPZCQ%3D)
-
-* [https://chrome.google.com/sync](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fchrome.google.com%2Fsync&si=t9pgqdpqpusg&st=post&k=%2Bps7Egflsm4YvfAIfcSbh8pBaHfP04sJ259ZCIPpudU%3D)
-
-* [https://adssettings.google.com](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fadssettings.google.com&si=t9pgqdpqpusg&st=post&k=rg%2BjAL5KraPkpuqr0%2Bdw%2BUSjOXEA5TjWfwsOe4SO%2BeA%3D)
-
-* [https://myaccount.google.com/dashboard](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fmyaccount.google.com%2Fdashboard&si=t9pgqdpqpusg&st=post&k=P4JTYda%2B7d9d4lLyhR9BuLLaMVVyFUNO1NTWSkVmbPI%3D)
+* https://myaccount.google.com/data-and-privacy
+* https://chrome.google.com/sync
+* https://adssettings.google.com
+* https://myaccount.google.com/dashboard
 
 ### روز سوم تا روز پنجم: بقیه سرویس‌ها رو تدریجی جایگزین کن
 
-برای جایگزین کردن سرویس های گوگل با مواردی که احترام بیشتری به حریم شخصی میزارن مطمینا زمان بیشتری لازمه و شاید واقع گرایانه تر باشه بگیم که شدنی تره که موارد حساس ترو منتقل کنیم و برای مواردی که ارزش اطلاعاتی خاصی نداره و چیزی از ما رو افشا نمیکنه هنوز از گوگل استفاده کنیم، در بین گزینه های موجود فعلا راحترین جایگزین سرویس های گوگل، سرویس های [https://proton.me/](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fproton.me%2F&si=t9pgqdpqpusg&st=post&k=AkjyDGTveffPKBluTkB5la8k0vS0yb1Fbe8hnBt1EyY%3D) هستن که رایگانم میشه ازشون استفاده کرد، اگه شروع کنی فعلا فقط موراد خیلی مهم شخصی رو ببری روش میشه یه تعادل خوب در کنار سرویس های گوگل باهاش ساخت. سرویس های دیگه که میشه برسی کرد، مثلا [https://ente.io](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fente.io&si=t9pgqdpqpusg&st=post&k=DKlqK7hsyp642MXnjoi64fWnkbzbbbg5RrvdHXb%2BIoQ%3D) برای ذخیره تصاویر شخصی رمزگذاری شده همراه با گروه بندی های هوش مصنوعی.
+برای جایگزین کردن سرویس های گوگل با مواردی که احترام بیشتری به حریم شخصی میزارن مطمینا زمان بیشتری لازمه و شاید واقع گرایانه تر باشه بگیم که شدنی تره که موارد حساس ترو منتقل کنیم و برای مواردی که ارزش اطلاعاتی خاصی نداره و چیزی از ما رو افشا نمیکنه هنوز از گوگل استفاده کنیم، در بین گزینه های موجود فعلا راحترین جایگزین سرویس های گوگل، سرویس های https://proton.me/ هستن که رایگانم میشه ازشون استفاده کرد، اگه شروع کنی فعلا فقط موراد خیلی مهم شخصی رو ببری روش میشه یه تعادل خوب در کنار سرویس های گوگل باهاش ساخت. سرویس های دیگه که میشه برسی کرد، مثلا https://ente.io برای ذخیره تصاویر شخصی رمزگذاری شده همراه با گروه بندی های هوش مصنوعی.
 
-برای استفاده از یوتیوب هم میشه [https://newpipe.net/](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fnewpipe.net%2F&si=t9pgqdpqpusg&st=post&k=pGyxQiQunajL%2FasJfRp104d4PJShWMYalyLS%2FSF4eWY%3D) رو روی گوشی نصب کرد و بر روی تلویزیون های هوشمند هم میشه [https://smarttubenext.org](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fsmarttubenext.org&si=t9pgqdpqpusg&st=post&k=VQ%2B3hBjwmC8q8fnW8rNAt8gjs6nFiRs0Zfs0SyhiJZ8%3D) استفاده کرد.
+برای استفاده از یوتیوب هم میشه https://newpipe.net/ رو روی گوشی نصب کرد و بر روی تلویزیون های هوشمند هم میشه https://smarttubenext.org استفاده کرد.
 
 ### **روز ششم: استفاده از VPN و DNS امن**
 
@@ -132,7 +128,7 @@ DoH درخواست‌های DNS رو از طریق پروتکل HTTPS رمزگذ
 
 باز چندین گزینه اینجا هست ولی برای ساده کردن کار من یک سرویس رو پیشنهاد میدم، Mullvad یه راهنمای کامل برای فعال‌سازی DoH داره:
 
-[https://mullvad.net/en/help/dns-over-https-and-dns-over-tls](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fmullvad.net%2Fen%2Fhelp%2Fdns-over-https-and-dns-over-tls&si=t9pgqdpqpusg&st=post&k=6gtgaM0rXzNdwO7fo%2B%2FxvDGe7D3OT8F5iVp3J%2FROBPI%3D)
+https://mullvad.net/en/help/dns-over-https-and-dns-over-tls
 
 توی بیشتر مرورگرهای مدرن مثل Firefox و Brave می‌تونی از تنظیمات خود مرورگر DoH رو فعال کنی. برای محافظت در سطح کل سیستم هم می‌تونی تنظیمات DNS سیستم‌عاملت رو عوض کنی.
 
@@ -145,14 +141,12 @@ VPN ترافیک اینترنتت رو رمزگذاری می‌کنه و IP وا
 - وقتی نمی‌خوای اپراتور اینترنتت بدونه چه سایت‌هایی می‌ری
     
 
-**یه نکته مهم:** VPN رایگان معمولاً یعنی تو خودت محصولی! با داده‌هات پول درمیارن. و VPN جادو نیست؛ اگه وارد اکانت گوگلت بشی، گوگل هنوز می‌دونه کی هستی.بنظرم گزینه قابل اعتماد ProtonVPN از همون تیم Proton Mail که قبلاً معرفی کردیم هست. نسخه رایگان محدود داره و برای استفاده کامل‌تر پولیه. با توجه به سابقه و شفافیت Proton، یکی از معتبرترین گزینه‌هاست: [https://protonvpn.com](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fprotonvpn.com&si=t9pgqdpqpusg&st=post&k=UKDbDX81pUL17p%2Br%2BqaCEtawFTDjufALS9ciC%2FzMKvQ%3D)
+**یه نکته مهم:** VPN رایگان معمولاً یعنی تو خودت محصولی! با داده‌هات پول درمیارن. و VPN جادو نیست؛ اگه وارد اکانت گوگلت بشی، گوگل هنوز می‌دونه کی هستی.بنظرم گزینه قابل اعتماد ProtonVPN از همون تیم Proton Mail که قبلاً معرفی کردیم هست. نسخه رایگان محدود داره و برای استفاده کامل‌تر پولیه. با توجه به سابقه و شفافیت Proton، یکی از معتبرترین گزینه‌هاست: https://protonvpn.com
 
 ### روز هفتم: آگاهی و اطلاع رسانی
 
 امیدوارم این نوشته شما رو تهییج کرده باشه برای بدست گرفتن کنترل بیشتر روی داده هایی که از شما در اینترنت ثبت و استفاده میشه، کلی کار دیگه هم میشه کرد ولی هدف امیدوارم کردن شما و نشون دادن این بود که قدم به قدم و تدریجی میشه شرایط رو بهبود داد، نهایتا میرسیم به مرحله آگاه نگه داشتن خودمون از موضوعات این حوزه، چند تا کانال یوتیوبی انگلیسی زبان رو اینجا میزارم ولی اگه شما منابع بهتر دیگه میشناختین لطفا کامنتشون کنید:
 
-- [https://www.youtube.com/@techlore](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fwww.youtube.com%2F%40techlore&si=t9pgqdpqpusg&st=post&k=OX9y5goI9lSjqzRbCgXrj5Z%2BVCVFLk5M5%2BQeTbduXJ8%3D)
-    
-- [https://www.youtube.com/@AllThingsSecured](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fwww.youtube.com%2F%40AllThingsSecured&si=t9pgqdpqpusg&st=post&k=XTXZ%2FtCr1jZRK7qrCI2rCFrHm3vSSA6rTBRZq755j9Y%3D)
-    
-- [https://www.youtube.com/@NaomiBrockwellTV](https://l.vrgl.ir/r?ad=1&l=https%3A%2F%2Fwww.youtube.com%2F%40NaomiBrockwellTV&si=t9pgqdpqpusg&st=post&k=1aWuTTJprV95Orlwk7WzAc9CMU5HF%2F1akGK6lE78SAE%3D)
+- https://www.youtube.com/@techlore 
+- https://www.youtube.com/@AllThingsSecured 
+- https://www.youtube.com/@NaomiBrockwellTV
