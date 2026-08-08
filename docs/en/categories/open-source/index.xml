@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Open-Source on Project Documentation</title>
+    <link>http://localhost:1313/en/categories/open-source/</link>
+    <description>Recent content in Open-Source on Project Documentation</description>
+    <image>
+      <title>Project Documentation</title>
+      <url>https://avatars.githubusercontent.com/u/147461?v=4</url>
+      <link>https://avatars.githubusercontent.com/u/147461?v=4</link>
+    </image>
+    <generator>Hugo -- 0.164.0</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 09 Aug 2026 00:00:00 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/categories/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jobEmails2Rss: Turn Job Alert Emails Into an RSS Feed</title>
+      <link>http://localhost:1313/en/posts/job_emails_to_rss/</link>
+      <pubDate>Sun, 09 Aug 2026 00:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/en/posts/job_emails_to_rss/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/pesarkhobeee/jobEmails2Rss&#34;&gt;jobEmails2Rss&lt;/a&gt; is a small pipeline that ingests job-alert emails, extracts the individual listings with an LLM, and serves them as a clean RSS feed and a searchable web dashboard. It runs entirely on Cloudflare Workers.&lt;/p&gt;
+&lt;h2 id=&#34;what&#34;&gt;What&lt;/h2&gt;
+&lt;p&gt;Four independent Workers backed by a single Cloudflare D1 (SQLite) database:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Email Worker&lt;/strong&gt; — receives incoming mail via Cloudflare Email Routing, parses it with &lt;code&gt;postal-mime&lt;/code&gt;, extracts job listings using Workers AI (Llama 3.3 70B), and stores them in D1.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enrichment Worker&lt;/strong&gt; — hourly cron that looks up unknown companies via the Brave Search API and caches a short description.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RSS Worker&lt;/strong&gt; — serves a paginated RSS feed at &lt;code&gt;rss.pathseeker.ir&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dashboard Worker&lt;/strong&gt; — a Tailwind + vanilla-JS SPA at &lt;code&gt;dashboard.pathseeker.ir&lt;/code&gt; for browsing, searching, and deleting jobs and emails. Protected by Cloudflare Zero Trust (GitHub login).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;why&#34;&gt;Why&lt;/h2&gt;
+&lt;p&gt;Job-alert emails pile up quickly and are hard to skim. Each message bundles many listings, and there is no good way to filter or search across them. Converting the stream into RSS makes the listings consumable in any feed reader, deduplicated by URL, and independent of the original inbox. Running on Workers keeps the whole stack on a single free-tier platform with no servers to maintain.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

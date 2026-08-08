@@ -26,6 +26,16 @@
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/posts/</loc>
     <lastmod>2026-01-04T11:38:55+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa-IR"
+                href="https://pesarkhobeee.github.io/fa/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://pesarkhobeee.github.io/en/posts/"
+                />
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/tags/privacy/</loc>
     <lastmod>2026-01-04T11:38:55+02:00</lastmod>
@@ -118,6 +128,16 @@
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/tags/rss/</loc>
     <lastmod>2024-08-17T17:30:41+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa-IR"
+                href="https://pesarkhobeee.github.io/fa/tags/rss/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://pesarkhobeee.github.io/en/tags/rss/"
+                />
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/posts/hello_world/</loc>
     <lastmod>2024-08-17T17:30:41+02:00</lastmod>
