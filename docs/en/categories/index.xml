@@ -11,8 +11,22 @@
     </image>
     <generator>Hugo -- 0.164.0</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 09 Aug 2026 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2026 00:01:00 +0200</lastBuildDate>
     <atom:link href="https://pesarkhobeee.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Guides</title>
+      <link>https://pesarkhobeee.github.io/en/categories/guides/</link>
+      <pubDate>Sun, 09 Aug 2026 00:01:00 +0200</pubDate>
+      <guid>https://pesarkhobeee.github.io/en/categories/guides/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://pesarkhobeee.github.io/en/categories/linux/</link>
+      <pubDate>Sun, 09 Aug 2026 00:01:00 +0200</pubDate>
+      <guid>https://pesarkhobeee.github.io/en/categories/linux/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ideas</title>
       <link>https://pesarkhobeee.github.io/en/categories/ideas/</link>

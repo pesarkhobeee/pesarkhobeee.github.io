@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.164.0</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 09 Aug 2026 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2026 00:01:00 +0200</lastBuildDate>
     <atom:link href="https://pesarkhobeee.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch Linux ARM on the ASUS Chromebook Flip C101PA</title>
+      <link>https://pesarkhobeee.github.io/en/posts/arch-linux-asus-c101pa/</link>
+      <pubDate>Sun, 09 Aug 2026 00:01:00 +0200</pubDate>
+      <guid>https://pesarkhobeee.github.io/en/posts/arch-linux-asus-c101pa/</guid>
+      <description>&lt;p&gt;The ASUS Chromebook Flip C101PA is a cheap, quiet, fanless ARM laptop that has been end-of-life on ChromeOS for years. It is still a perfectly good machine for browsing, writing, and light development — and it makes an excellent secondary Linux laptop if you are willing to install Arch Linux ARM on a microSD card.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://archlinuxarm.org/platforms/armv8/rockchip/asus-chromebook-flip-c101pa&#34;&gt;official Arch Linux ARM guide&lt;/a&gt; is the starting point, but as of now it &lt;strong&gt;no longer works as written&lt;/strong&gt;. The published rootfs ships the ancient 4.4 ChromeOS kernel, and current Arch userland (systemd) refuses to run on it — first boot fails with &lt;code&gt;Failed to mount early API filesystems&lt;/code&gt; / &lt;code&gt;Freezing execution&lt;/code&gt;. This guide bakes in the fix: replace the kernel and firmware with mainline &lt;strong&gt;before&lt;/strong&gt; the first boot.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Turn Job Alert Emails Into an RSS Feed with Cloudflare Workers</title>
       <link>https://pesarkhobeee.github.io/en/posts/job_emails_to_rss/</link>
