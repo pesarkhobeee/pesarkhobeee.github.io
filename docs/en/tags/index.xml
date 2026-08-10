@@ -11,8 +11,43 @@
     </image>
     <generator>Hugo -- 0.164.0</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 09 Aug 2026 00:01:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2026 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://pesarkhobeee.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ci</title>
+      <link>https://pesarkhobeee.github.io/en/tags/ci/</link>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0200</pubDate>
+      <guid>https://pesarkhobeee.github.io/en/tags/ci/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crd</title>
+      <link>https://pesarkhobeee.github.io/en/tags/crd/</link>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0200</pubDate>
+      <guid>https://pesarkhobeee.github.io/en/tags/crd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubeconform</title>
+      <link>https://pesarkhobeee.github.io/en/tags/kubeconform/</link>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0200</pubDate>
+      <guid>https://pesarkhobeee.github.io/en/tags/kubeconform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>https://pesarkhobeee.github.io/en/tags/kubernetes/</link>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0200</pubDate>
+      <guid>https://pesarkhobeee.github.io/en/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Validation</title>
+      <link>https://pesarkhobeee.github.io/en/tags/validation/</link>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0200</pubDate>
+      <guid>https://pesarkhobeee.github.io/en/tags/validation/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Arch-Linux</title>
       <link>https://pesarkhobeee.github.io/en/tags/arch-linux/</link>

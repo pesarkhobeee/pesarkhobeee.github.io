@@ -11,8 +11,17 @@
     </image>
     <generator>Hugo -- 0.164.0</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 09 Aug 2026 00:01:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2026 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://pesarkhobeee.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Validate Kubernetes Manifests (Including CRDs) with Kubeconform</title>
+      <link>https://pesarkhobeee.github.io/en/posts/kubeconform/</link>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0200</pubDate>
+      <guid>https://pesarkhobeee.github.io/en/posts/kubeconform/</guid>
+      <description>&lt;p&gt;Applying a manifest just to discover a typo in a field name is a slow feedback loop. &lt;a href=&#34;https://github.com/yannh/kubeconform&#34;&gt;Kubeconform&lt;/a&gt; gives you that feedback in milliseconds: it validates Kubernetes YAML against the official API schemas, offline and pinned to the exact cluster version you run.&lt;/p&gt;
+&lt;h2 id=&#34;why-not-just-kubectl-apply---dry-run&#34;&gt;Why not just &lt;code&gt;kubectl apply --dry-run&lt;/code&gt;?&lt;/h2&gt;
+&lt;p&gt;A dry run needs a live cluster and validates against whatever version that cluster happens to be. Kubeconform works anywhere: on your laptop, in a pre-commit hook, or in a CI job, and it lets you target a specific Kubernetes version. It is also fast enough to run on every commit.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Arch Linux ARM on the ASUS Chromebook Flip C101PA</title>
       <link>https://pesarkhobeee.github.io/en/posts/arch-linux-asus-c101pa/</link>

@@ -2,17 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://pesarkhobeee.github.io/en/posts/arch-linux-asus-c101pa/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/tags/arch-linux/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/tags/arm/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-  </url><url>
     <loc>https://pesarkhobeee.github.io/en/categories/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
+    <lastmod>2026-08-10T00:00:00+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa-IR"
@@ -23,6 +14,75 @@
                 hreflang="en-US"
                 href="https://pesarkhobeee.github.io/en/categories/"
                 />
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/ci/</loc>
+    <lastmod>2026-08-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/crd/</loc>
+    <lastmod>2026-08-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/categories/devops/</loc>
+    <lastmod>2026-08-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/kubeconform/</loc>
+    <lastmod>2026-08-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/kubernetes/</loc>
+    <lastmod>2026-08-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/posts/</loc>
+    <lastmod>2026-08-10T00:00:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa-IR"
+                href="https://pesarkhobeee.github.io/fa/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://pesarkhobeee.github.io/en/posts/"
+                />
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/</loc>
+    <lastmod>2026-08-10T00:00:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa-IR"
+                href="https://pesarkhobeee.github.io/fa/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://pesarkhobeee.github.io/en/"
+                />
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/</loc>
+    <lastmod>2026-08-10T00:00:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa-IR"
+                href="https://pesarkhobeee.github.io/fa/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://pesarkhobeee.github.io/en/tags/"
+                />
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/posts/kubeconform/</loc>
+    <lastmod>2026-08-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/validation/</loc>
+    <lastmod>2026-08-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/posts/arch-linux-asus-c101pa/</loc>
+    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/arch-linux/</loc>
+    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/arm/</loc>
+    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/en/tags/chromebook/</loc>
     <lastmod>2026-08-09T00:01:00+02:00</lastmod>
@@ -36,47 +96,8 @@
     <loc>https://pesarkhobeee.github.io/en/tags/linux/</loc>
     <lastmod>2026-08-09T00:01:00+02:00</lastmod>
   </url><url>
-    <loc>https://pesarkhobeee.github.io/en/posts/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fa-IR"
-                href="https://pesarkhobeee.github.io/fa/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://pesarkhobeee.github.io/en/posts/"
-                />
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fa-IR"
-                href="https://pesarkhobeee.github.io/fa/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://pesarkhobeee.github.io/en/"
-                />
-  </url><url>
     <loc>https://pesarkhobeee.github.io/en/tags/rockchip/</loc>
     <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/tags/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fa-IR"
-                href="https://pesarkhobeee.github.io/fa/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://pesarkhobeee.github.io/en/tags/"
-                />
   </url><url>
     <loc>https://pesarkhobeee.github.io/en/tags/ai/</loc>
     <lastmod>2026-08-09T00:00:00+02:00</lastmod>
