@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://pesarkhobeee.github.io/fa/categories/</loc>
-    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
+    <lastmod>2026-08-11T00:00:00+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa-IR"
@@ -15,17 +15,14 @@
                 href="https://pesarkhobeee.github.io/en/categories/"
                 />
   </url><url>
-    <loc>https://pesarkhobeee.github.io/fa/tags/google/</loc>
-    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
+    <loc>https://pesarkhobeee.github.io/fa/tags/inspiration/</loc>
+    <lastmod>2026-08-11T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/categories/life/</loc>
-    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/fa/categories/open-source/</loc>
-    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
+    <lastmod>2026-08-11T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/posts/</loc>
-    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
+    <lastmod>2026-08-11T00:00:00+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa-IR"
@@ -37,11 +34,11 @@
                 href="https://pesarkhobeee.github.io/en/posts/"
                 />
   </url><url>
-    <loc>https://pesarkhobeee.github.io/fa/tags/privacy/</loc>
-    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
+    <loc>https://pesarkhobeee.github.io/fa/tags/speech/</loc>
+    <lastmod>2026-08-11T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/tags/</loc>
-    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
+    <lastmod>2026-08-11T00:00:00+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa-IR"
@@ -53,11 +50,14 @@
                 href="https://pesarkhobeee.github.io/en/tags/"
                 />
   </url><url>
-    <loc>https://pesarkhobeee.github.io/fa/posts/digital_data_privacy/</loc>
-    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
+    <loc>https://pesarkhobeee.github.io/fa/tags/translation/</loc>
+    <lastmod>2026-08-11T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/posts/tim_minchin_nine_lessons/</loc>
+    <lastmod>2026-08-11T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/</loc>
-    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
+    <lastmod>2026-08-11T00:00:00+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa-IR"
@@ -68,6 +68,18 @@
                 hreflang="en-US"
                 href="https://pesarkhobeee.github.io/en/"
                 />
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/tags/google/</loc>
+    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/categories/open-source/</loc>
+    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/tags/privacy/</loc>
+    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/fa/posts/digital_data_privacy/</loc>
+    <lastmod>2026-01-04T11:38:55+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/fa/posts/financial_framework/</loc>
     <lastmod>2024-11-09T19:04:39+01:00</lastmod>
