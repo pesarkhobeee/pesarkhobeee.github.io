@@ -11,8 +11,34 @@
     </image>
     <generator>Hugo -- 0.164.0</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 10 Aug 2026 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://pesarkhobeee.github.io/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>YouTube for Your Family in Iran, Without a VPN</title>
+      <link>https://pesarkhobeee.github.io/en/posts/youtube-without-vpn-invidious-cloudflare-tunnel/</link>
+      <pubDate>Sun, 16 Aug 2026 00:00:00 +0200</pubDate>
+      <guid>https://pesarkhobeee.github.io/en/posts/youtube-without-vpn-invidious-cloudflare-tunnel/</guid>
+      <description>&lt;p&gt;YouTube is blocked in Iran, so most people there depend on VPNs that are slow,
+unstable, and often blocked themselves. If you live outside Iran and have a small
+computer at home, there is a nicer way: run &lt;a href=&#34;https://github.com/iv-org/invidious&#34;&gt;Invidious&lt;/a&gt;
+(an open-source YouTube frontend) on your home connection and publish it through a
+&lt;a href=&#34;https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/create-remote-tunnel/&#34;&gt;Cloudflare Tunnel&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Your family just opens a normal website. No VPN, no app, no configuration on
+their side.&lt;/p&gt;
+&lt;h2 id=&#34;why-this-works&#34;&gt;Why this works&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Your home IP is a residential IP.&lt;/strong&gt; YouTube aggressively blocks requests
+coming from datacenters, so Invidious on a cheap VPS breaks all the time.
+From a home connection it just works.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cloudflare Tunnel needs no open ports.&lt;/strong&gt; A small connector (&lt;code&gt;cloudflared&lt;/code&gt;)
+dials &lt;em&gt;out&lt;/em&gt; from your home to Cloudflare, and Cloudflare routes your public
+domain to it. Your home IP stays hidden and your router stays untouched.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The blocked side never talks to YouTube.&lt;/strong&gt; Visitors in Iran only talk to
+your domain on Cloudflare&amp;rsquo;s network; your server fetches the videos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You need: a machine at home that runs Docker (an old laptop is perfect), a free
+Cloudflare account, and a domain added to Cloudflare.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Validate Kubernetes Manifests (Including CRDs) with Kubeconform</title>
       <link>https://pesarkhobeee.github.io/en/posts/kubeconform/</link>
