@@ -1,6 +1,6 @@
 +++
 title = 'Arch Linux ARM on the ASUS Chromebook Flip C101PA, Part 2: Making It a Daily Driver'
-date = 2026-09-13T14:00:00+02:00
+date = 2026-09-13T13:30:00+02:00
 categories = ['linux', 'guides']
 tags = ['arch-linux', 'chromebook', 'arm', 'linux', 'rockchip', 'sway', 'encryption']
 +++
@@ -189,6 +189,22 @@ with your public keys copied to `/etc/ssh/authorized_keys.d/you` *before* the fi
 
 The protector is your login password, and someone holding the card can brute-force it offline — make it a real password.
 
+## Real audio: PipeWire for video calls
+
+Part 1's `alsaucm` incantation makes the speakers beep, but browsers do not speak raw ALSA — Google Meet in Brave or Firefox needs a PulseAudio interface. A bare `pipewire` package (which something had pulled in as a dependency) is not enough: without **wireplumber** PipeWire routes nothing, and without **pipewire-pulse** there is no pulse socket for applications.
+
+```
+sudo pacman -Syu --needed pipewire-pulse wireplumber alsa-utils
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
+```
+
+The payoff is bigger than expected: wireplumber applies the proper UCM profiles for `rk3399-gru-sound`, so instead of Part 1's everything-is-"Headphones" situation you get a real `Speaker` sink and `Mic` source, correctly labeled. Microphone and speakers both work in Meet with no further configuration.
+
+Two notes from getting there:
+
+- If pacman 404s on a package (`failed retrieving file ... from mirror.archlinuxarm.org`), your database is stale relative to the mirror. The fix is a full `-Syu` together with what you wanted to install — never `pacman -Sy` followed by `-S`, which is the classic partial-upgrade trap.
+- Quick self-test without a call: `timeout 2 speaker-test -c2 -t sine -f 440 -D pulse` for output, and `parecord /tmp/t.wav` + `paplay /tmp/t.wav` for the mic.
+
 ## USB-C displays: the flip trick
 
 External monitors over USB-C (DisplayPort alt mode) work — *sometimes*. The rk3399's `cdn-dp` controller plus the ChromeOS embedded controller negotiate alt mode reliably in only **one plug orientation** on mainline. If the monitor is not detected: unplug, **rotate the connector 180°**, plug again. That's it. That was weeks of "sometimes it works" resolved by a coin flip's worth of physics.
@@ -201,6 +217,8 @@ cdn-dp fec00000.dp: Connected, not enabled; enabling cdn
 ```
 
 The sequel gotcha: once DisplayPort alt mode is up, that port's USB-3 lanes belong to the display. A keyboard receiver or hub plugged into **the monitor's USB ports** (or the same USB-C port) fails to enumerate in an endless `attempt power cycle` loop. Peripherals go in the port on the *other side* of the laptop, always.
+
+And the trilogy: **do not reboot with the external monitor attached.** The greeter can come up on the external output (or the panel stays blank during the handoff), and the internal screen shows nothing — which is indistinguishable from the failed-kernel-flash black screen of Part 1's rescue section. Before diagnosing a broken boot, unplug the monitor and try again. Ask me how I know.
 
 ## Odds and ends
 

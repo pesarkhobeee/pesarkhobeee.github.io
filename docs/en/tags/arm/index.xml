@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.164.0</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 09 Aug 2026 00:01:00 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 13:30:00 +0200</lastBuildDate>
     <atom:link href="https://pesarkhobeee.github.io/en/tags/arm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch Linux ARM on the ASUS Chromebook Flip C101PA, Part 2: Making It a Daily Driver</title>
+      <link>https://pesarkhobeee.github.io/en/posts/arch-linux-asus-c101pa-part-2/</link>
+      <pubDate>Sun, 13 Sep 2026 13:30:00 +0200</pubDate>
+      <guid>https://pesarkhobeee.github.io/en/posts/arch-linux-asus-c101pa-part-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://pesarkhobeee.github.io/en/posts/arch-linux-asus-c101pa/&#34;&gt;Part 1&lt;/a&gt; got Arch Linux ARM booting on the C101PA with a mainline kernel, Sway, and working audio and backlight. This post is everything that came after: turning a proof-of-concept install into a small laptop I actually reach for — a modern shell, real applications (including ones that officially don&amp;rsquo;t exist for this platform), compressed swap, an encrypted home directory, and the hardware quirks that only show up once you use the machine every day.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Arch Linux ARM on the ASUS Chromebook Flip C101PA</title>
       <link>https://pesarkhobeee.github.io/en/posts/arch-linux-asus-c101pa/</link>

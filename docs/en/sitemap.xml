@@ -2,8 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://pesarkhobeee.github.io/en/posts/arch-linux-asus-c101pa-part-2/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/arch-linux/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/arm/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+  </url><url>
     <loc>https://pesarkhobeee.github.io/en/categories/</loc>
-    <lastmod>2026-08-16T00:00:00+02:00</lastmod>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fa-IR"
@@ -13,6 +22,66 @@
                 rel="alternate"
                 hreflang="en-US"
                 href="https://pesarkhobeee.github.io/en/categories/"
+                />
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/chromebook/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/encryption/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/categories/guides/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/categories/linux/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/linux/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/posts/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa-IR"
+                href="https://pesarkhobeee.github.io/fa/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://pesarkhobeee.github.io/en/posts/"
+                />
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa-IR"
+                href="https://pesarkhobeee.github.io/fa/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://pesarkhobeee.github.io/en/"
+                />
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/rockchip/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/sway/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://pesarkhobeee.github.io/en/tags/</loc>
+    <lastmod>2026-09-13T13:30:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fa-IR"
+                href="https://pesarkhobeee.github.io/fa/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://pesarkhobeee.github.io/en/tags/"
                 />
   </url><url>
     <loc>https://pesarkhobeee.github.io/en/tags/censorship/</loc>
@@ -27,50 +96,11 @@
     <loc>https://pesarkhobeee.github.io/en/tags/invidious/</loc>
     <lastmod>2026-08-16T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://pesarkhobeee.github.io/en/posts/</loc>
-    <lastmod>2026-08-16T00:00:00+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fa-IR"
-                href="https://pesarkhobeee.github.io/fa/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://pesarkhobeee.github.io/en/posts/"
-                />
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/</loc>
-    <lastmod>2026-08-16T00:00:00+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fa-IR"
-                href="https://pesarkhobeee.github.io/fa/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://pesarkhobeee.github.io/en/"
-                />
-  </url><url>
     <loc>https://pesarkhobeee.github.io/en/categories/self-hosting/</loc>
     <lastmod>2026-08-16T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/en/tags/self-hosting/</loc>
     <lastmod>2026-08-16T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/tags/</loc>
-    <lastmod>2026-08-16T00:00:00+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fa-IR"
-                href="https://pesarkhobeee.github.io/fa/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://pesarkhobeee.github.io/en/tags/"
-                />
   </url><url>
     <loc>https://pesarkhobeee.github.io/en/tags/youtube/</loc>
     <lastmod>2026-08-16T00:00:00+02:00</lastmod>
@@ -100,27 +130,6 @@
     <lastmod>2026-08-10T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/en/posts/arch-linux-asus-c101pa/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/tags/arch-linux/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/tags/arm/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/tags/chromebook/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/categories/guides/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/categories/linux/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/tags/linux/</loc>
-    <lastmod>2026-08-09T00:01:00+02:00</lastmod>
-  </url><url>
-    <loc>https://pesarkhobeee.github.io/en/tags/rockchip/</loc>
     <lastmod>2026-08-09T00:01:00+02:00</lastmod>
   </url><url>
     <loc>https://pesarkhobeee.github.io/en/tags/ai/</loc>
