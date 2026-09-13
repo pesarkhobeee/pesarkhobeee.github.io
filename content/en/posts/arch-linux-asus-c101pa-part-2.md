@@ -200,6 +200,20 @@ systemctl --user enable --now pipewire pipewire-pulse wireplumber
 
 The payoff is bigger than expected: wireplumber applies the proper UCM profiles for `rk3399-gru-sound`, so instead of Part 1's everything-is-"Headphones" situation you get a real `Speaker` sink and `Mic` source, correctly labeled. Microphone and speakers both work in Meet with no further configuration.
 
+**Screen sharing** is a separate machine: on Wayland the browser cannot grab the screen itself — it asks xdg-desktop-portal, which captures via PipeWire. That needs the wlroots backend, plus one non-obvious wiring step:
+
+```
+sudo pacman -S xdg-desktop-portal-wlr xdg-desktop-portal-gtk
+```
+
+and in the Sway config, so the portal can actually find your session:
+
+```
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+```
+
+Without that line the portal starts but never activates the wlr backend, and Meet's share button silently does nothing. Log out and back in (or `systemctl --user restart xdg-desktop-portal` after package changes). Note the wlr portal shares whole outputs, not individual windows.
+
 Two notes from getting there:
 
 - If pacman 404s on a package (`failed retrieving file ... from mirror.archlinuxarm.org`), your database is stale relative to the mirror. The fix is a full `-Syu` together with what you wanted to install — never `pacman -Sy` followed by `-S`, which is the classic partial-upgrade trap.
